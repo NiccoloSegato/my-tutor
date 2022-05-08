@@ -97,7 +97,6 @@ function showSlots(event) {
         success: function(data, textStatus, xhr) {
             if(xhr.status === 200){
                 // Answer received
-                console.log(data);
                 const obj = JSON.parse(data);
                 if(parseInt(obj.error) === 0) {
                     // No errors
@@ -161,7 +160,7 @@ function showSlots(event) {
 
 function renderSummary(lessonId) {
     $.ajax({
-        url: 'api/get-lesson.php',
+        url: 'api/getlesson.php',
         type: 'GET',
         data: { id: lessonId },
         success: function(data, textStatus, xhr) {
@@ -182,31 +181,13 @@ function renderSummary(lessonId) {
                         'price' : obj.price
                     }
                     document.getElementById("sum-lesson-name").innerText = lesson.subject_name;
-                    switch (lesson.grade) {
-                        case 0:
-                            document.getElementById("sum-grade-name").innerText = "Elementari";
-                            break;
-                        case 1:
-                            document.getElementById("sum-grade-name").innerText = "Medie";
-                            break;
-                        case 2:
-                            document.getElementById("sum-grade-name").innerText = "Superiori";
-                            break;
-                        case 3:
-                            document.getElementById("sum-grade-name").innerText = "Università";
-                            break;
-                        default:
-                            break;
-                    }
-                    document.getElementById("sum-tutor-name").innerText = lesson.tutor;
+                    document.getElementById("sum-grade-name").innerText = lesson.grade;
                     document.getElementById("sum-duration-name").innerText = 'Durata: ' + lesson.duration + ' minuti';
                     // Split timestamp into [ Y, M, D, h, m, s ]
                     var t = lesson.datetime.split(/[- :]/);
                     var d = new Date(Date.UTC(t[0], t[1]-1, t[2], t[3], t[4], t[5]));
                     document.getElementById("sum-date-name").innerHTML = "Il <strong>" + d.getDate() + " " + months[d.getMonth()] + " " + d.getFullYear() + "</strong> dalle <strong>" + d.getHours() + ":" + d.getMinutes() + "</strong>";
-                    document.getElementById("sum-lesson-price").innerText = (lesson.price / 100) + '€ - Prezzo della lezione';
-                    document.getElementById("sum-commission-price").innerText = "2€ - Commissioni";
-                    document.getElementById("sum-total-price").innerText = ((lesson.price + 200) / 100) + "€ - Totale";
+                    document.getElementById("sum-total-price").innerText = (lesson.price / 100) + "€ - Totale";
                     document.getElementById("sum-confirm-btn").onclick = function() {
                         $.ajax({
                             url: 'api/set-reservation.php',

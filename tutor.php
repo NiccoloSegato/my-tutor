@@ -120,7 +120,7 @@ else {
                     </div>
                     <script src="scripts/tutor-calendar.js"></script>
                     <div id="date-box">
-                        <h2 style="color: #00c85c; margin-bottom: 0;">Seleziona un orario</h2>
+                        <h2 style="color: #0366fa; margin-bottom: 0;">Seleziona un orario</h2>
                         <div id="date-selector">
                             <div class="date-obj">
                                 <p>Nessuna data selezionata</p>
@@ -128,17 +128,14 @@ else {
                         </div>
                     </div>
                     <div id="summary-slot">
-                        <h2 style="color: #00c85c; margin-bottom: 5px;">Checkout</h2>
+                        <h2 style="color: #0366fa; margin-bottom: 5px;">Checkout</h2>
                         <div id="summary-box">
                             <p id="sum-lesson-name">-</p>
-                            <p id="sum-tutor-name">-</p>
                             <p id="sum-grade-name">-</p>
                             <div class="sum-divider"></div>
                             <p id="sum-date-name">-</p>
                             <p id="sum-duration-name">-</p>
                             <div class="sum-divider"></div>
-                            <p id="sum-lesson-price">-</p>
-                            <p id="sum-commission-price">-</p>
                             <p id="sum-total-price">-</p>
                             <button id="sum-confirm-btn">Paga ora</button>
                         </div>
