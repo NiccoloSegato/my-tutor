@@ -44,7 +44,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     session_start();
                             
                     // Store data in session variables
-                    $_SESSION["userid"] = $row["id"];
+                    $_SESSION["tutorid"] = $row["id"];
                     $_SESSION["loggedin"] = true;
 
                     header("location: profile.php");

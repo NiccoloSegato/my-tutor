@@ -32,13 +32,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     if(isset($_POST["signup-name-field"]) && isset($_POST["signup-surname-field"]) && isset($_POST["signup-city-field"]) && isset($_POST["signup-birthday-field"]) && isset($_POST["signup-email-field"]) && isset($_POST["signup-psw-field"])) {
         $email = htmlspecialchars($_POST["signup-email-field"]);
         $password = hash('sha256', htmlspecialchars($_POST["signup-psw-field"]));
-        $token = hash('sha256', $password . '!EP' . rand());
         $name = htmlspecialchars($_POST["signup-name-field"]);
         $surname = htmlspecialchars($_POST["signup-surname-field"]);
         $city = htmlspecialchars($_POST["signup-city-field"]);
         $birthday = htmlspecialchars($_POST["signup-birthday-field"]);
 
-        $query = $pdo->prepare("SELECT id FROM user WHERE email = ?");
+        $query = $pdo->prepare("SELECT id FROM tutor WHERE email = ?");
         $query->bind_param('s', $email);
         if($query->execute()) {
             $result = $query->get_result();
@@ -48,14 +47,14 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
             }
             else {
                 // Inserting user into database
-                $queryrec = $pdo->prepare("INSERT INTO tutor (name, surname, city, birthday, email, password, token) VALUES (?, ?, ?, ?, ?, ?, ?)");
-                $queryrec->bind_param('sssssss', $name, $surname, $city, $birthday, $email, $password, $token);
+                $queryrec = $pdo->prepare("INSERT INTO tutor (name, surname, city, birthday, email, password) VALUES (?, ?, ?, ?, ?, ?)");
+                $queryrec->bind_param('ssssss', $name, $surname, $city, $birthday, $email, $password);
                 if($queryrec->execute()) {
                     $userid = $queryrec->insert_id;
                     session_start();
                             
                     // Store data in session variables
-                    $_SESSION["userid"] = $userid;
+                    $_SESSION["tutorid"] = $userid;
                     $_SESSION["loggedin"] = true;
 
                     header("location: profile.php");
@@ -72,7 +71,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="http://www.fuoriklasse.com/wp-content/uploads/2020/03/cropped-IMG_2385-32x32.jpg" sizes="32x32">
+        <link rel="icon" href="assets/images/logo.png" sizes="32x32">
         <title>Registrati - FuoriKLASSE</title>
         <link rel="stylesheet" href="styles/global.css?v=2">
         <link rel="stylesheet" href="styles/signup.css?v=2">
@@ -84,7 +83,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         </header>
         <div id="globalcontainer">
             <h1>Registrati su FuoriKLASSE</h1>
-            <p>Creando un account potrai prenotare e gestire tutte le tue lezioni 📚</p>
+            <p>Inizia a dare ripetizioni e scopri come è semplice usare FuoriKLASSE per crescere 📚</p>
 
             <form id="signup-form" method="POST">
                 <label for="signup-name-field">Nome</label>
