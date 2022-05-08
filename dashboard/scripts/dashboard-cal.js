@@ -100,12 +100,13 @@ function showCalendar(month, year) {
 function parseEvents(month, year) {
     let date = new Date(year, month, 1, 0, 0, 0, 0).toISOString().slice(0, 10);
     $.ajax({
-        url: 'api/get-tutor-events.php',
+        url: 'api/gettutorevents.php',
         type: 'GET',
         data: { date: date },
         success: function(data, textStatus, xhr) {
             if(xhr.status === 200){
                 // Answer received
+                console.log(data)
                 const obj = JSON.parse(data);
                 if(parseInt(obj.error) === 0) {
                     // No errors
@@ -151,19 +152,18 @@ function renderEvents() {
         let lessonName = document.createElement("p");
         lessonName.innerHTML = '<strong>' + element.starting_date.slice(11, 16) + '</strong> ' + element.subject_name;
         lessonDiv.append(lessonName);
-        document.getElementById("container-" + element.starting_date.slice(8, 10)).append(lessonDiv);
+        document.getElementById("container-" + parseInt(element.starting_date.slice(8, 10))).append(lessonDiv);
     })
 }
 
 function showInfoLesson(lessonId) {
     $.ajax({
-        url: 'api/get-lesson.php',
+        url: 'api/getlesson.php',
         type: 'GET',
         data: { id: lessonId },
         success: function(data, textStatus, xhr) {
             if(xhr.status === 200){
                 // Answer received
-                console.log(data);
                 const obj = JSON.parse(data);
                 if(parseInt(obj.error) === 0) {
                     // No errors

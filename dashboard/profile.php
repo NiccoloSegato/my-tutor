@@ -46,9 +46,9 @@ if($query->execute()) {
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Il tuo calendario - FuoriKLASSE</title>
     <link rel="icon" href="http://www.fuoriklasse.com/wp-content/uploads/2020/03/cropped-IMG_2385-32x32.jpg" sizes="32x32">
-    <link rel="stylesheet" href="../styles/global.css?v=2">
+    <link rel="stylesheet" href="styles/global.css?v=2">
     <link rel="stylesheet" href="styles/calendar.css?v=2">
-    <script src="../scripts/jquery.js"></script>
+    <script src="scripts/jquery.js"></script>
 </head>
 <body>
     <div id="shadow"></div>
