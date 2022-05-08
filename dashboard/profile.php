@@ -24,14 +24,19 @@ if ($conn->connect_error) {
 
 $subject = [];
 $tutor = $_SESSION["tutorid"];
-$resultt = $conn->prepare("SELECT * FROM subject WHERE tutor = ?");
-$query->bind_param('i', $tutorid);
-foreach($resultt as $rowt) {
-    $subject[] = [
-        'id'      => $rowt->id,
-        'name'    => $rowt->name,
-        'grade'   => $rowt->grade
-    ];
+$query = $conn->prepare("SELECT * FROM subject WHERE tutor = ?");
+$query->bind_param('i', $tutor);
+if($query->execute()) {
+    $result = $query->get_result();
+    if($result->num_rows == 1){
+        while ($row = $result->fetch_assoc()) {
+            $subject[] = [
+                'id'      => $row->id,
+                'name'    => $row->name,
+                'grade'   => $row->grade
+            ];
+        }
+    }
 }
 ?>
 <!DOCTYPE html>

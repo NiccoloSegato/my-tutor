@@ -1,0 +1,124 @@
+#globalcont-cal {
+    width: 90%;
+    margin: 40px auto;
+}
+h1 {
+    font-weight: bold !important;
+}
+#calendar {
+    border-radius: 10px;
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+}
+thead {
+    background-color: #ececec;
+}
+th {
+    padding: 10px;
+}
+tbody {
+    border: 1px solid #ececec;
+}
+td {
+    height: 100px;
+    border: 1px solid #ececec;
+    width: calc(100% / 7);
+    max-width: calc(100% / 7);
+}
+.lesson-container {
+    border-radius: 5px;
+    padding: 0 5px;
+    cursor: pointer;
+}
+#shadow {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    z-index: 99;
+}
+#event-infobox {
+    background-color: white;
+    position: fixed;
+    top: 30px;
+    left: calc(50% - 270px);
+    width: 500px;
+    display: none;
+    z-index: 100;
+    border-radius: 10px;
+    padding: 20px;
+}
+#event-infobox h3, #event-infobox p {
+    margin: 0;
+}
+#close-infobox {
+    margin: 0;
+    font-weight: bold;
+    background-color: #e6e6e6;
+    padding: 7px;
+    border-radius: 50%;
+    width: 16px;
+    line-height: 16px;
+    text-align: center;
+    cursor: pointer;
+}
+#form-infobox label {
+    display: block;
+    margin-top: 20px;
+}
+#form-infobox input, #form-infobox select {
+    width: calc(100% - 20px);
+    border-radius: 10px;
+    border: 1px solid #e6e6e6;
+    padding: 10px;
+    font-family: "Nunito", Helvetica, Arial, sans-serif !important;
+    font-size: 16px;
+}
+#form-infobox select {
+    width: 100% !important;
+}
+#form-infobox button {
+    font-family: "Nunito", Helvetica, Arial, sans-serif !important;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
+}
+#addeventbtn {
+    background-color: #0265f9;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    cursor: pointer;
+    font-family: "Nunito", Helvetica, Arial, sans-serif !important;
+}
+.container-box p {
+    margin: 0;
+}
+#exist-infobox {
+    background-color: white;
+    position: fixed;
+    top: 30px;
+    left: calc(50% - 270px);
+    width: 500px;
+    display: none;
+    z-index: 100;
+    border-radius: 10px;
+    padding: 20px;
+}
+#exist-infobox h3, #exist-infobox p {
+    margin: 0;
+}
+.btn {
+    font-family: "Nunito", Helvetica, Arial, sans-serif !important;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
+}
