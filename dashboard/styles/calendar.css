@@ -88,15 +88,17 @@ td {
     padding: 10px;
     font-size: 16px;
 }
-#addeventbtn {
-    background-color: #0265f9;
+.comands-btn {
     border: none;
     border-radius: 10px;
     padding: 10px 20px;
     font-size: 16px;
-    color: white;
     cursor: pointer;
     font-family: "Nunito", Helvetica, Arial, sans-serif !important;
+}
+#addeventbtn {
+    background-color: #0265f9;
+    color: white;
 }
 .container-box p {
     margin: 0;

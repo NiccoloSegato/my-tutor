@@ -57,7 +57,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                     $_SESSION["tutorid"] = $userid;
                     $_SESSION["loggedin"] = true;
 
-                    header("location: profile.php");
+                    header("location: index.php");
                 }
             }
         }
