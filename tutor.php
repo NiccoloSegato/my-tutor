@@ -29,6 +29,7 @@ else {
                 $tutor_name = $row["name"];
                 $tutor_surname = $row["surname"];
                 $tutor_bio = $row["bio"];
+                $tutor_img = $row["image"];
             }
         }
         else {
@@ -55,7 +56,7 @@ else {
         </header>
         <div id="bodycont">
             <div id="tutor-profile">
-                <img id="tutor-profile-img" src="assets/images/nick.jpeg" alt="Tutor Image">
+                <img id="tutor-profile-img" src="<?php echo $tutor_img ?>" alt="Tutor Image">
                 <div id="tutor-name-box">
                     <h2><?php echo $tutor_name ?> <?php echo $tutor_surname ?></h2>
                     <p><?php echo $tutor_bio ?></p>

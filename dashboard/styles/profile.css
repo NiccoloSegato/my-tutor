@@ -1,0 +1,64 @@
+#globalcontainer {
+    padding-top: 40px;
+    padding-bottom: 70px;
+}
+#globalcontainer h1, p {
+    margin: 0;
+}
+.profile-field {
+    border: none;
+    display: block;
+    font-size: 16px;
+    border-radius: 5px;
+    width: calc(100% - 30px);
+    padding: 10px 15px;
+    background-color: #eee;
+    font-family: "Nunito", Helvetica, Arial, sans-serif;
+}
+#changeimage-cont {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    margin-top: 10px;
+    background-color: #eee;
+    padding: 10px;
+    border-radius: 10px;
+    width: calc(100% - 20px);
+}
+#changeimage-cont img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 30px;
+    margin-right: 10px;
+}
+#changeimage {
+    margin-left: 8px;
+    width: calc(100% - 72px);
+}
+#changeimage input[type=url] {
+    width: 100%;
+    height: 25px;
+    border-radius: 5px;
+    border: none;
+    color: white;
+    background-color: #191919;
+    margin-bottom: 5px;
+}
+#changeimage input[type=submit] {
+    border-radius: 5px;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    background-color: #191919;
+}
+#tutor-bio {
+    border: none;
+    display: block;
+    font-size: 16px;
+    border-radius: 5px;
+    width: 100%;
+    padding: 10px 15px;
+    background-color: #eee;
+    font-family: "Nunito", Helvetica, Arial, sans-serif;
+}

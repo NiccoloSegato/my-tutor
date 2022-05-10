@@ -237,6 +237,10 @@ function openGains() {
     window.location.href = "gains.php";
 }
 
+function openProfile() {
+    window.location.href = "profile.php";
+}
+
 function deleteLesson(id) {
     $.ajax({
         url: 'api/deletelesson.php',

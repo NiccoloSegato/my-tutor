@@ -6,7 +6,7 @@ session_start();
  
 // Check if the user is already logged in, if yes then redirect him to profile page
 if(!isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] !== true){
-    header("location: profile.php");
+    header("location: login.php");
     exit;
 }
 
