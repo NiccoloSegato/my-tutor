@@ -1,0 +1,25 @@
+#globalcontainer {
+    padding-top: 40px;
+    padding-bottom: 70px;
+}
+#globalcontainer h1, p {
+    margin: 0;
+}
+.subject-box {
+    background-color: #f4f4f4;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 10px;
+}
+.comands-btn {
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: "Nunito", Helvetica, Arial, sans-serif !important;
+    display: block;
+    text-decoration: none;
+    width: fit-content;
+    margin-top: 5px;
+}

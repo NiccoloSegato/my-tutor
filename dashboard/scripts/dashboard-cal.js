@@ -228,6 +228,11 @@ function closeInfoBox() {
     document.getElementById("event-infobox").style.display = "none";
     document.getElementById("exist-infobox").style.display = "none";
 }
+
+function openSubjects() {
+    window.location.href = "your-subjects.php";
+}
+
 function deleteLesson(id) {
     $.ajax({
         url: 'api/deletelesson.php',

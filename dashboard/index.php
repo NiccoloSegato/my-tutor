@@ -24,7 +24,7 @@ if ($conn->connect_error) {
 
 $subject = [];
 $tutor = $_SESSION["tutorid"];
-$query = $conn->prepare("SELECT * FROM subject WHERE tutor = ?");
+$query = $conn->prepare("SELECT * FROM subject WHERE tutor = ? AND status = 0");
 $query->bind_param('i', $tutor);
 if($query->execute()) {
     $result = $query->get_result();
@@ -123,7 +123,7 @@ if($query->execute()) {
             </div>
             <div id="comands-holder">
                 <button id="addeventbtn" class="comands-btn" onclick="addEvent()">Nuova lezione</button>
-                <button class="comands-btn">Le tue materie</button>
+                <button class="comands-btn" onclick="openSubjects()">Le tue materie</button>
                 <button class="comands-btn">I tuoi guadagni</button>
                 <button class="comands-btn">Il tuo profilo</button>
             </div>
