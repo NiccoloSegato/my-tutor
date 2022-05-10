@@ -124,3 +124,26 @@ td {
     padding: 10px;
     font-size: 16px;
 }
+#comands-box {
+    background-color: #f4f4f4;
+    border-radius: 15px;
+    padding: 20px;
+}
+#gains-lbl {
+    font-size: 31px;
+    font-weight: 700;
+    margin: 0;
+}
+#comands-holder {
+    margin-top: 20px;
+}
+@media screen and (max-width: 700px) {
+    #comands-holder {
+        display: flex;
+        flex-direction: column;
+    }
+    .comands-btn {
+        width: 100%;
+        margin-top: 10px;
+    }
+}

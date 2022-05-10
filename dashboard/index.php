@@ -118,8 +118,8 @@ if($query->execute()) {
 
         <div id="comands-box">
             <div id="gains-box">
-                <p>0€</p>
-                <p>Guadagnati questo mese</p>
+                <p id="gains-lbl">0€</p>
+                <p style="margin: 0;">Guadagnati questo mese</p>
             </div>
             <div id="comands-holder">
                 <button id="addeventbtn" class="comands-btn" onclick="addEvent()">Nuova lezione</button>
@@ -129,7 +129,7 @@ if($query->execute()) {
             </div>
         </div>
 
-        <h3>📆 Calendario</h2>
+        <h2>📆 Calendario</h2>
         <div id="calbox" class="container col-sm-4 col-md-7 col-lg-4 mt-5">
             <div class="card">
                 <h3 class="card-header" id="monthAndYear"></h3>
