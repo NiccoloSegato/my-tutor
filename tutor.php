@@ -67,7 +67,7 @@ else {
                 <h2 style="margin-bottom: 0; color: #0366fa;">Seleziona una materia</h2>
                 <div id="subjects-list">
                     <?php
-                    $query2 = $conn->prepare("SELECT * FROM subject WHERE tutor = ?");
+                    $query2 = $conn->prepare("SELECT * FROM subject WHERE tutor = ? AND status = 0");
                     $query2->bind_param('i', $tutorid);
                     if($query2->execute()) {
                         $result2 = $query2->get_result();

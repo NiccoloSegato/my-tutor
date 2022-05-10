@@ -29,6 +29,8 @@ if ($conn->connect_error) {
         <title>Le tue materie - FuoriKLASSE</title>
         <link rel="stylesheet" href="styles/global.css?v=2">
         <link rel="stylesheet" href="styles/your-subjects.css">
+        <script src="scripts/jquery.js"></script>
+        <script src="scripts/your-subjects.js"></script>
     </head>
     <body>
         <header>
@@ -51,7 +53,7 @@ if ($conn->connect_error) {
                             <div class="subject-box">
                                 <p><strong style="font-size: 18px;">' . $row["name"] . '</strong></p>
                                 <p><i>' . $row["grade"] . '</i></p>
-                                <button class="comands-btn">Elimina</button>
+                                <button class="comands-btn" onclick="deleteSubject(' . $row["id"] . ')">Elimina</button>
                             </div>
                         ';
                     }
