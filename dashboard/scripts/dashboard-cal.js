@@ -233,6 +233,10 @@ function openSubjects() {
     window.location.href = "your-subjects.php";
 }
 
+function openGains() {
+    window.location.href = "gains.php";
+}
+
 function deleteLesson(id) {
     $.ajax({
         url: 'api/deletelesson.php',

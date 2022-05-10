@@ -124,7 +124,7 @@ if($query->execute()) {
             <div id="comands-holder">
                 <button id="addeventbtn" class="comands-btn" onclick="addEvent()">Nuova lezione</button>
                 <button class="comands-btn" onclick="openSubjects()">Le tue materie</button>
-                <button class="comands-btn">I tuoi guadagni</button>
+                <button class="comands-btn" onclick="openGains()">I tuoi guadagni</button>
                 <button class="comands-btn">Il tuo profilo</button>
             </div>
         </div>
