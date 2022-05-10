@@ -34,6 +34,7 @@ else {
                 $tutor_bio = $row["bio"];
                 $tutor_img = $row["image"];
                 $tutor_vat = $row["vat"];
+                $tutor_iban = $row["iban"];
             }
         }
         else {
@@ -80,8 +81,19 @@ else {
             <textarea id="tutor-bio" name="tutor-bio"><?php echo $tutor_bio ?></textarea>
 
             <div class="divider" style="height: 15px;"></div>
-            <label>Codice Fiscale o P.IVA</label>
-            <input type="text" id="tutor-vat" name="tutor-vat" value="<?php echo $tutor_vat ?>" >
+            <label for="tutor-vat">Codice Fiscale o P.IVA</label>
+            <input class="profile-field" style="width: 100%" type="text" id="tutor-vat" name="tutor-vat" value="<?php echo $tutor_vat ?>" >
+            <p style="font-size: 14px !important; margin-top: 5px">Questo dato è necessario ai fini fiscali</p>
+
+            <div class="divider" style="height: 15px;"></div>
+            <label for="tutor-iban">IBAN</label>
+            <input class="profile-field" style="width: 100%" type="text" id="tutor-iban" name="tutor-iban" value="<?php echo $tutor_iban ?>" >
+            <p style="font-size: 14px !important; margin-top: 5px">Su questo conto corrente invieremo i prelievi. Assicurati di inserire un conto corrente <strong>intestato a te</strong>.</p>
+
+            <div class="divider" style="height: 30px;"></div>
+
+            <button class="comands-btn" onclick="submitData()">Salva</button>
+            <a class="comands-btn" style="color: black; background-color: #d7d7d7;" href="index.php">Annulla</a>
         </div>
     </body>
 </html>

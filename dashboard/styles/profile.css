@@ -62,3 +62,22 @@
     background-color: #eee;
     font-family: "Nunito", Helvetica, Arial, sans-serif;
 }
+label {
+    display: block;
+    font-weight: bold;
+}
+.comands-btn {
+    border: none;
+    border-radius: 10px;
+    padding: 10px 0;
+    font-size: 16px;
+    cursor: pointer;
+    font-family: "Nunito", Helvetica, Arial, sans-serif !important;
+    display: block;
+    text-decoration: none;
+    margin-top: 5px;
+    background-color: #0265f9;
+    color: white;
+    width: 100%;
+    text-align: center;
+}
