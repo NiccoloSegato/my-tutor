@@ -1,0 +1,25 @@
+#globalcontainer {
+    padding-top: 40px;
+    padding-bottom: 70px;
+}
+#globalcontainer h1, p {
+    margin: 0;
+}
+#comands-box {
+    background-color: #f4f4f4;
+    border-radius: 15px;
+    padding: 20px;
+    margin: 20px 0;
+}
+#gains-lbl {
+    font-size: 31px;
+    font-weight: 700;
+    margin: 0;
+}
+.btn {
+    font-family: "Nunito", Helvetica, Arial, sans-serif !important;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 16px;
+}
