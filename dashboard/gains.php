@@ -42,8 +42,8 @@ if ($conn->connect_error) {
             
             <?php
             $tutor = $_SESSION["tutorid"];
-            $query = $conn->prepare("SELECT transaction.id as transactionid, subject.name as subjectname, lesson.datereference as lessondate, lesson.duration as lessonduration, transaction.email as transactionemail, transaction.withdrawn as withdrawn, withdrawn_datereference FROM transaction, lesson, subject WHERE transaction.tutor = ? AND subject.tutor = transaction.tutor AND lesson.id = transaction.id AND lesson.subject = subject.id AND transaction.status = 1 LIMIT 20");
-            $queryt = $conn->prepare("SELECT sum(transaction.amount) as total FROM transaction, lesson WHERE tutor = ? AND transaction.status = 1 AND withdrawn = 0 AND lesson.id = transaction.lesson AND lesson.datereference < (CURRENT_TIMESTAMP)");
+            $query = $conn->prepare("SELECT transaction.id as transactionid, subject.name as subjectname, lesson.datereference as lessondate, lesson.duration as lessonduration, transaction.email as transactionemail, transaction.withdrawn as withdrawn, withdrawn_datereference, transaction.amount as transactionamount, transaction.commission FROM transaction, lesson, subject WHERE transaction.tutor = ? AND subject.tutor = transaction.tutor AND lesson.id = transaction.lesson AND lesson.subject = subject.id AND transaction.status = 1 LIMIT 20");
+            $queryt = $conn->prepare("SELECT sum(transaction.amount - transaction.commission) as total FROM transaction, lesson WHERE tutor = ? AND transaction.status = 1 AND withdrawn = 0 AND lesson.id = transaction.lesson AND lesson.datereference < (CURRENT_TIMESTAMP)");
             $query->bind_param('i', $tutor);
             $queryt->bind_param('i', $tutor);
             if($queryt->execute()) {
@@ -86,10 +86,14 @@ if ($conn->connect_error) {
                     while ($row = $result->fetch_assoc()) {
                         echo '
                         <div class="transaction-box">
-                            <p>ID transazione: ' . $row["transactionid"] . '</p>
-                            <p>Lezione di ' . $row["subjectname"] . ' </p>
-                            <p>Del ' . substr($row["lessondate"], 0, 10) . ' alle ' . substr($row["lessondate"], 10) . ', durata '  . $row["lessonduration"] . ' minuti</p>
-                            <p>Prenotato da ' . $row["transactionemail"] . '</p>';
+                            <p style="font-size: 14px;color: #626262;">ID transazione: ' . $row["transactionid"] . '</p>
+                            <p style="font-size: 20px;font-weight: 700;">Lezione di ' . $row["subjectname"] . ' </p>
+                            <p style="color: #4a4a4a;">Del ' . substr($row["lessondate"], 0, 10) . ' alle ' . substr($row["lessondate"], 10) . ', durata '  . $row["lessonduration"] . ' minuti</p>
+                            <p style="font-weight: 700;">Prenotato da ' . $row["transactionemail"] . '</p>
+                            <div style="background-color: #d9d9d9; width: 100%; height: 2px; margin: 5px 0;"></div>
+                            <p style="color: #00bb56; font-weight: 700; font-size: 18px;">+' . number_format(($row["transactionamount"] - $row["commission"]) / 100, 2) . '€</p>
+                            <p style="font-size: 14px;">' . number_format($row["transactionamount"] / 100, 2) . '€ - '. number_format($row["commission"] / 100, 2) . '€ di commissioni di servizio</p>
+                            ';
                             if($row["withdrawn"] == 1) {
                                 echo '<p>Fondi prelevati il ' . $row["withdrawn_datereference"] . '</p>';
                             }

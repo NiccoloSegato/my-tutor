@@ -118,7 +118,20 @@ if($query->execute()) {
 
         <div id="comands-box">
             <div id="gains-box">
-                <p id="gains-lbl">0€</p>
+                <p id="gains-lbl">
+                    <?php
+                    $queryt = $conn->prepare("SELECT SUM(amount - commission) AS total FROM transaction WHERE tutor = ? AND status = 1 AND datereference >= NOW() - INTERVAL 30 DAY");
+                    $queryt->bind_param('i', $tutor);
+                    if($queryt->execute()) {
+                        $resultt = $queryt->get_result();
+                        if($resultt->num_rows > 0){
+                            while ($rowt = $resultt->fetch_assoc()) {
+                                echo number_format($rowt["total"] / 100, 2);
+                            }
+                        }
+                    }
+                    ?>
+                €</p>
                 <p style="margin: 0;">Guadagnati questo mese</p>
             </div>
             <div id="comands-holder">
