@@ -27,30 +27,58 @@ if ($conn->connect_error) {
     die;
 }
 
-// Check if user has founds to withdraw
+// Check if user inserted his IBAN
 $tutor = htmlspecialchars($_SESSION["tutorid"]);
-$query = $conn->prepare("UPDATE transaction SET withdrawn = 1, withdrawn_datereference = CURRENT_TIMESTAMP WHERE tutor = ? AND status = 1 AND withdrawn = 0 AND lesson IN (SELECT id FROM lesson WHERE tutor = ? AND datereference < CURRENT_TIMESTAMP)");
-$query->bind_param('ii', $tutor, $tutor);
-if($query->execute()) {
-    $result = $query->get_result();
-    if($conn->affected_rows > 0){
-        $obj = new \stdClass();
-        $obj->error = 0;
-        echo json_encode($obj);
-        die;
+$queryiban = $conn->prepare("SELECT iban, vat FROM tutor WHERE id = ?");
+$queryiban->bind_param('i', $tutor);
+if($queryiban->execute()) {
+    $resultiban = $queryiban->get_result();
+    if($resultiban->num_rows > 0){
+        while ($rowiban = $resultiban->fetch_assoc()) {
+            if(is_null($rowiban["iban"]) || is_null($rowiban["vat"])) {
+                // User not inserted his IBAN and VAT code
+                $obj = new \stdClass();
+                $obj->error = 1;
+                $obj->error_msg = "Non hai impostato nessun IBAN sul quale versare i fondi. Torna alla dashboard, seleziona \"Il tuo profilo\" e inserisci i dati necessari.";
+                echo json_encode($obj);
+                die;
+            }
+            else {
+                // Check if user has founds to withdraw
+                $query = $conn->prepare("UPDATE transaction SET withdrawn = 1, withdrawn_datereference = CURRENT_TIMESTAMP WHERE tutor = ? AND status = 1 AND withdrawn = 0 AND lesson IN (SELECT id FROM lesson WHERE tutor = ? AND datereference < CURRENT_TIMESTAMP)");
+                $query->bind_param('ii', $tutor, $tutor);
+                if($query->execute()) {
+                    $result = $query->get_result();
+                    if($conn->affected_rows > 0){
+                        $obj = new \stdClass();
+                        $obj->error = 0;
+                        echo json_encode($obj);
+                        die;
+                    }
+                    else {
+                        $obj = new \stdClass();
+                        $obj->error = 1;
+                        $obj->error_msg = "Non ci sono fondi da prelevare";
+                        echo json_encode($obj);
+                        die;
+                    }
+                }
+                else {
+                    $obj = new \stdClass();
+                        $obj->error = 1;
+                        $obj->error_msg = "Internal error";
+                        echo json_encode($obj);
+                        die;
+                }
+            }
+        }
     }
     else {
+        // Probably not existing user
         $obj = new \stdClass();
         $obj->error = 1;
-        $obj->error_msg = "Non ci sono fondi da prelevare";
+        $obj->error_msg = "User ID error";
         echo json_encode($obj);
         die;
     }
-}
-else {
-    $obj = new \stdClass();
-        $obj->error = 1;
-        $obj->error_msg = "Internal error";
-        echo json_encode($obj);
-        die;
 }
