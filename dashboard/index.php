@@ -77,7 +77,7 @@ if($query->execute()) {
                 <input type="text" class="form-control" name="price" value="0">
                 
                 <div style="margin-top: 20px"></div>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Annulla</button>
+                <button type="button" class="btn btn-secondary" onclick="closeInfoBox()">Annulla</button>
                 <button type="submit" style="background-color: #c9ffc9;" class="btn btn-primary">Pubblica lezione</button>
                 ';
             }

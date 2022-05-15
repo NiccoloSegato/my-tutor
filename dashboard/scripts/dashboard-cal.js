@@ -106,7 +106,6 @@ function parseEvents(month, year) {
         success: function(data, textStatus, xhr) {
             if(xhr.status === 200){
                 // Answer received
-                console.log(data)
                 const obj = JSON.parse(data);
                 if(parseInt(obj.error) === 0) {
                     // No errors
@@ -180,7 +179,6 @@ function showInfoLesson(lessonId) {
                     }
                     if(lesson.reservation.isreserved == "0") {
                         // no reservations for this lesson
-                        console.log("FREE");
                         document.getElementById("ex-res-name").innerText = "🟡 Nessuna prenotazione per questa lezione...";
                         document.getElementById("del-les").onclick = function () {
                             deleteLesson(obj.id);
@@ -189,13 +187,12 @@ function showInfoLesson(lessonId) {
                     }
                     else {
                         // the lesson is reserved
-                        console.log("RESERVED");
                         lesson.reservation = {
                             'isreserved' : obj.reservation.isreserved,
                             'id' : obj.reservation.resid,
-                            'user_name' : obj.reservation.user_name
+                            'buyer_email' : obj.reservation.buyer_email
                         }
-                        document.getElementById("ex-res-name").innerText = "🟢 Prenotazione effettuata da " + lesson.reservation.user_name;
+                        document.getElementById("ex-res-name").innerText = "🟢 Prenotazione effettuata da " + lesson.reservation.buyer_email;
                         document.getElementById("del-les").style.display = "none";
                     }
                     document.getElementById("ex-subject-name").innerHTML = "<strong>" + lesson.subject_name + "</strong>";

@@ -48,7 +48,7 @@ if(isset($_GET["id"])) {
                 if($result2->num_rows > 0) {
                     // Someone reserved
                     while ($row2 = $result2->fetch_assoc()) {
-                        $resarray = array("isreserved" => "1", "resid" => $row2["resid"], "user_name" => $row2["user_name"]);
+                        $resarray = array("isreserved" => "1", "resid" => $row2["resid"], "buyer_email" => $row2["buyer_email"]);
                     }
                 }
                 else {
