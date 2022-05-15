@@ -31,7 +31,7 @@ function get_client_ip_local() {
 }
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $valid_extensions = array('jpeg', 'jpg', 'png', 'gif', 'bmp' , 'pdf'); // valid extensions
-    $final_path = $_SERVER['DOCUMENT_ROOT'] . "/mytutor/uploads/user/";
+    $final_path = $_SERVER['DOCUMENT_Sql1068665'] . "/mytutor/uploads/user/";
 
     if(isset($_FILES["fileToUpload"])){
         if($_FILES['fileToUpload']) {
@@ -47,10 +47,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $final_path = $final_path . $final_image;
                 if(move_uploaded_file($tmp, $final_path)) {
                     // Image uploaded, saving on the DB
-                    $servername = "localhost";
-                    $usernameD = "root";
-                    $password = "";
-                    $dbname = "fuoriklasse_new";
+                    $servername = "89.46.111.38";
+                    $usernameD = "Sql1068665";
+                    $password = "3863t3v631";
+                    $dbname = "Sql1068665_3";
 
                     $conn = new mysqli($servername, $usernameD, $password, $dbname);
                     $conn->set_charset('utf8mb4');
