@@ -54,13 +54,13 @@ if($query->execute()) {
     <div id="shadow"></div>
     <div id="event-infobox">
         <div style="justify-content: right; display: flex; width: 100%;" onclick="closeInfoBox()"><p id="close-infobox">X</p></div>
-        <h3 id="action-title">Nuova lezione</h3>
+        <h2 id="action-title">Nuova lezione</h2>
 
         <form id="form-infobox" action="api/insert.php" method="POST">
             <?php
             if(count($subject) > 0) {
                 echo '
-                <label for="subject">Materia</label>
+                <label class="control-label" for="subject">Materia</label>
                     <select class="form-control" name="subject" id="subject">
                 ';
                 foreach($subject as $sub) {
@@ -71,9 +71,11 @@ if($query->execute()) {
                 <input type="datetime-local" class="form-control" id="startDate" name="startDate" value="' . date("Y-m-d\Th:i", time()) . '" min="' . date("Y-m-d\Th:i", time()) . '">
 
                 <label class="control-label" for="duration">Durata</label>
+                <p>Inserisci la durata della lezione in minuti</p>
                 <input type="text" class="form-control" name="duration" value="0">
 
                 <label class="control-label" for="price">Prezzo</label>
+                <p>Inserisci il prezzo della lezione in centesimi (1565 = 15,65€)</p>
                 <input type="text" class="form-control" name="price" value="0">
                 
                 <div style="margin-top: 20px"></div>

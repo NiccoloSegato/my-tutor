@@ -55,6 +55,9 @@ td {
 #event-infobox h3, #event-infobox p {
     margin: 0;
 }
+.control-label {
+    font-weight: bold;
+}
 #close-infobox {
     margin: 0;
     font-weight: bold;
