@@ -31,8 +31,8 @@ if(isset($_SESSION["tutorid"]) && isset($_GET["date"])) {
 
         $tutorid = htmlspecialchars($_SESSION["tutorid"]);
         $date = htmlspecialchars($_GET["date"]);
-        $query = $conn->prepare("SELECT lesson.id AS lessonid, lesson.subject AS subjectid, subject.name as subjectname, datereference, duration FROM lesson, subject WHERE subject IN (SELECT id FROM subject WHERE tutor = ?) AND datereference >= TIMESTAMP(?) AND lesson.subject = subject.id AND lesson.status <> 3");
-        $query->bind_param('is', $tutorid, $date);
+        $query = $conn->prepare("SELECT lesson.id AS lessonid, lesson.subject AS subjectid, subject.name as subjectname, datereference, duration FROM lesson, subject WHERE subject IN (SELECT id FROM subject WHERE tutor = ?) AND datereference >= TIMESTAMP(?) AND datereference <= TIMESTAMP(?) + INTERVAL 30 DAY AND lesson.subject = subject.id AND lesson.status <> 3");
+        $query->bind_param('iss', $tutorid, $date, $date);
         $query->execute();
         $result = $query->get_result();
         if($result->num_rows > 0) {
