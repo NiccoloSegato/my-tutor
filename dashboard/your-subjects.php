@@ -21,6 +21,7 @@ if ($conn->connect_error) {
     header("location: error.php");
 }
 ?>
+<!DOCTYPE html>
 <html lang="it">
     <head>
         <meta charset="UTF-8">

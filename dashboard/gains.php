@@ -21,6 +21,7 @@ if ($conn->connect_error) {
     header("location: error.php");
 }
 ?>
+<!DOCTYPE html>
 <html lang="it">
     <head>
         <meta charset="UTF-8">
@@ -95,6 +96,9 @@ if ($conn->connect_error) {
                             <p style="font-size: 14px;">' . number_format($row["transactionamount"] / 100, 2) . '€ - '. number_format($row["commission"] / 100, 2) . '€ di commissioni di servizio</p>
                             ';
                             if($row["withdrawn"] == 1) {
+                                echo '<p>Fondi richiesti il ' . $row["withdrawn_datereference"] . ', arriveranno sul tuo conto a breve</p>';
+                            }
+                            else if ($row["withdrawn"] == 2) {
                                 echo '<p>Fondi prelevati il ' . $row["withdrawn_datereference"] . '</p>';
                             }
                             echo '
