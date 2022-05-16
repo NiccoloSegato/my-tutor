@@ -1,0 +1,61 @@
+.btn {
+    display: block;
+    width: fit-content;
+    text-decoration: none;
+}
+.btn-success {
+    background-color: #0265f9;
+    font-family: "Nunito", Helvetica, Arial, sans-serif;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    border: 2px solid #0265f9;
+    border-radius: 30px;
+    padding: 10px 20px;
+}
+.call-to-action {
+    background-color: #0265f9;
+    border-radius: 30px;
+    width: calc(100% - 40px);
+    padding: 30px 20px;
+    color: white;
+}
+.call-to-action h2 {
+    font-weight: bold;
+}
+.call-to-action a {
+    font-weight: bold;
+    text-decoration: none;
+    margin: auto;
+}
+.btn-outline-success {
+    font-family: "Nunito", Helvetica, Arial, sans-serif;
+    color: black;
+    background-color: white;
+    font-weight: bold;
+    font-size: 16px;
+    border: 2px solid black;
+    border-radius: 30px;
+    padding: 10px 20px;
+}
+footer {
+    background-color: rgb(247, 247, 247);
+    margin-top: 40px;
+    padding: 20px;
+}
+#logo-cont {
+    display: flex;
+    margin-bottom: 20px;
+}
+#logo-cont img {
+    margin-right: 10px;
+    object-fit: cover;
+}
+#logo-cont h4, #logo-cont p {
+    margin: 0;
+}
+footer a {
+    color: black;
+    text-decoration: none;
+    display: block;
+}
