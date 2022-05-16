@@ -1,0 +1,45 @@
+#q {
+    width: calc(100% - 24px);
+    display: block;
+    border-radius: 10px;
+    border: 2px solid #e1e1e1;
+    font-family: "Nunito", Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    padding: 10px;
+}
+#q-conf {
+    display: block;
+    background-color: #0265f9;
+    color: white;
+    width: 100%;
+    font-family: "Nunito", Helvetica, Arial, sans-serif;
+    padding: 5px 0;
+    border: none;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+#search-img {
+    width: 100%;
+    max-width: 300px;
+}
+.search-result {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    text-decoration: none;
+    color: black;
+    width: calc(100% - 20px);
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    margin-top: 20px;
+    padding: 10px;
+}
+.search-result img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #0265f9;
+    padding: 2px;
+    margin-right: 5px;
+}
