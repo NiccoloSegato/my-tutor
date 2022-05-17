@@ -26,8 +26,8 @@ if ($conn->connect_error) {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="assets/images/logo.png" sizes="32x32">
-        <title>I tuoi guadagni - FuoriKLASSE</title>
+        <link rel="icon" href="assets/images/logo.ico" sizes="32x32">
+        <title>I tuoi guadagni - Reepit</title>
         <link rel="stylesheet" href="styles/global.css?v=2">
         <link rel="stylesheet" href="styles/gains.css">
         <script src="scripts/jquery.js"></script>
@@ -35,7 +35,7 @@ if ($conn->connect_error) {
     </head>
     <body>
         <header>
-            <img src="assets/images/logo.png" alt="FuoriKLASSE">
+            <img src="assets/images/logo.png" alt="Reepit">
         </header>
         <div id="globalcontainer">
             <h1>I tuoi guadagni</h1>

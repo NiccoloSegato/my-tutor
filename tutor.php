@@ -43,16 +43,16 @@ else {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="assets/images/cropped-IMG_2385-32x32.jpg" sizes="32x32">
-        <title>Prenota una lezione con <?php echo $tutor_name ?> <?php echo $tutor_surname ?> - FuoriKLASSE</title><!-- TODO: mettere il nome del tutor -->
+        <link rel="icon" href="assets/images/logo.ico" sizes="32x32">
+        <title>Prenota una lezione con <?php echo $tutor_name ?> <?php echo $tutor_surname ?> - Reepit</title><!-- TODO: mettere il nome del tutor -->
         <link rel="stylesheet" href="styles/tutor.css">
         <script src="scripts/jquery.js"></script>
         <script src="scripts/tutor.js"></script>
     </head>
     <body>
         <header>
-            <img src="assets/images/cropped-IMG_2385-32x32.jpg" alt="Logo">
-            <p>MyTutor</p>
+            <img src="assets/images/logo.ico" alt="Logo">
+            <p style="margin: 0 10px; font-size: 27px;">Reepit</p>
         </header>
         <div id="bodycont">
             <div id="tutor-profile">

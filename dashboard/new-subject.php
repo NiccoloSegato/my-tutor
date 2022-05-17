@@ -58,15 +58,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="assets/images/logo.png" sizes="32x32">
-        <title>Nuova materia - FuoriKLASSE</title>
+        <link rel="icon" href="assets/images/logo.ico" sizes="32x32">
+        <title>Nuova materia - Reepit</title>
         <link rel="stylesheet" href="styles/global.css?v=2">
         <link rel="stylesheet" href="styles/signup.css?v=2">
         <script src="scripts/signup.js"></script>
     </head>
     <body>
         <header>
-            <img src="assets/images/logo.png" alt="FuoriKLASSE">
+            <img src="assets/images/logo.png" alt="Reepit">
         </header>
         <div id="globalcontainer">
             <h1>Aggiungi una tua materia</h1>
