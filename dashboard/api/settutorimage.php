@@ -47,10 +47,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $final_path = $final_path . $final_image;
                 if(move_uploaded_file($tmp, $final_path)) {
                     // Image uploaded, saving on the DB
-                    $servername = "89.46.111.38";
+                    $servername = "hostingmysql335.register.it";
                     $usernameD = "Sql1068665";
                     $password = "3863t3v631";
-                    $dbname = "Sql1068665_3";
+                    $dbname = "sql1068665";
 
                     $conn = new mysqli($servername, $usernameD, $password, $dbname);
                     $conn->set_charset('utf8mb4');

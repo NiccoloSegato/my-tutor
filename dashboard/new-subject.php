@@ -10,10 +10,10 @@ if(!isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] !== true){
     exit;
 }
 
-define('DB_SERVER', '89.46.111.38');
+define('DB_SERVER', 'hostingmysql335.register.it');
 define('DB_USERNAME', 'Sql1068665');
 define('DB_PASSWORD', '3863t3v631');
-define('DB_NAME', 'Sql1068665_3');
+define('DB_NAME', 'sql1068665');
 
 /* Attempt to connect to MySQL database */
 $pdo = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
