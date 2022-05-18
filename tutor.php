@@ -44,8 +44,9 @@ else {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="assets/images/logo.ico" sizes="32x32">
-        <title>Prenota una lezione con <?php echo $tutor_name ?> <?php echo $tutor_surname ?> - Reepit</title><!-- TODO: mettere il nome del tutor -->
+        <title>Prenota una lezione con <?php echo $tutor_name ?> <?php echo $tutor_surname ?> - Reepit</title>
         <link rel="stylesheet" href="styles/tutor.css">
+        <script src="https://js.stripe.com/v3/"></script>
         <script src="scripts/jquery.js"></script>
         <script src="scripts/tutor.js"></script>
     </head>
@@ -138,6 +139,10 @@ else {
                             <p id="sum-duration-name">-</p>
                             <div class="sum-divider"></div>
                             <p id="sum-total-price">-</p>
+
+                            <label for="sh-email">La tua email</label>
+                            <input type="email" name="sh-email" id="sh-email" placeholder="Inserisci la tua mail">
+                            
                             <button id="sum-confirm-btn">Paga ora</button>
                         </div>
                     </div>
