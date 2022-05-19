@@ -189,30 +189,7 @@ function renderSummary(lessonId) {
                     document.getElementById("sum-date-name").innerHTML = "Il <strong>" + d.getDate() + " " + months[d.getMonth()] + " " + d.getFullYear() + "</strong> dalle <strong>" + d.getHours() + ":" + d.getMinutes() + "</strong>";
                     document.getElementById("sum-total-price").innerText = (lesson.price / 100) + "€ - Totale";
                     document.getElementById("sum-confirm-btn").onclick = function() {
-                        $.ajax({
-                            url: 'api/set-reservation.php',
-                            type: 'POST',
-                            data: { lessonid: lessonId },
-                            success: function(data, textStatus, xhr) {
-                                if(xhr.status === 200){
-                                    // Answer received
-                                    console.log(data);
-                                    const obj = JSON.parse(data);
-                                    if(parseInt(obj.error) === 0) {
-                                        window.location.href = "confirm-reservation.php?id=" + obj.reservation_id;
-                                    }
-                                    else {
-                                        // Some error occurred
-                                        // TODO: Handle the error
-                                        alert(obj.error_msg);
-                                    }
-                                }
-                                else {
-                                    // TODO: Handle the status error
-                                    alert("There was an error retrieving the menu");
-                                }
-                            }
-                        });
+                        submitOrder(lessonId);
                     }
                     document.getElementById("summary-slot").style.display = "block";
                 }
