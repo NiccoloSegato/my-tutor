@@ -1,7 +1,9 @@
 <?php
+error_reporting(-1);
+ini_set('display_errors', 'On');
 if(isset($_GET["sessionid"]) && isset($_GET["id"])){
     $sessionid = htmlspecialchars($_GET["sessionid"]);
-    $order_id = $_GET["id"];
+    $order_id = htmlspecialchars($_GET["id"]);
 
     $url = 'https://api.stripe.com/v1/checkout/sessions/' . $sessionid;
     $ch = curl_init();
@@ -47,7 +49,7 @@ if(isset($_GET["sessionid"]) && isset($_GET["id"])){
             $queryr->bind_param('s', $order_id);
             $queryr->execute();
             if($queryr->affected_rows > 0) {
-                header('location: /confirmation.html?id=' . $order_id);
+                header('location: /confirmation.php?id=' . $order_id);
                 die;
             }
             else {

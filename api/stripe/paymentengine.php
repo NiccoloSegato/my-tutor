@@ -80,17 +80,17 @@ if(isset($_POST["email"]) && isset($_POST["lessonId"])){
             $commission = intval($temp);
 
             // Saving pending transaction to DB
-            $queryt = $conn->prepare("INSERT INTO transaction (tutor, lesson, amount, email, commission, transaction_id, transaction_intent) VALUES (?, ?, ?, ?, ?, ?, ?)");
-            $queryt->bind_param('iiisiss', $tutorid, $lessonid, $lessonprice, $useremail, $commission, $stripeid, $stripeintent);
+            $queryt = $conn->prepare("INSERT INTO transaction (transaction_ref, tutor, lesson, amount, email, commission, transaction_id, transaction_intent) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+            $queryt->bind_param('siiisiss', $order_id, $tutorid, $lessonid, $lessonprice, $useremail, $commission, $stripeid, $stripeintent);
             if($queryt->execute()) {
                 // No errors adding the transaction to DB
                 $transactionid = $queryt->insert_id;
                 
                 // Creating the reservation
                 $queryr = $conn->prepare("INSERT INTO reservation (lesson, buyer_email, transaction) VALUES (?, ?, ?)");
-                $queryr = $conn->bind_param('isi', $lessonid, $useremail, $transactionid);
+                $queryr->bind_param('isi', $lessonid, $useremail, $transactionid);
                 if($queryr->execute()) {
-                    echo json_encode(['id' => $stripesession, 'error' => 0]);
+                    echo json_encode(['id' => $stripeid, 'error' => 0]);
                     die;
                 }
                 else {
