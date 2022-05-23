@@ -90,6 +90,9 @@ if(isset($_POST["email"]) && isset($_POST["lessonId"])){
                 $queryr = $conn->prepare("INSERT INTO reservation (lesson, buyer_email, transaction) VALUES (?, ?, ?)");
                 $queryr->bind_param('isi', $lessonid, $useremail, $transactionid);
                 if($queryr->execute()) {
+                    // Sending confirmation email
+                    file_get_contents("https://reepit.it/plugin/mailengine.php?token=3cb62525ca5c453c2e4ad727b8b3ebf5049c2445307d59a83727528c92a15b2a&dest=" . $useremail);
+                    
                     echo json_encode(['id' => $stripeid, 'error' => 0]);
                     die;
                 }
