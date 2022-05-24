@@ -21,23 +21,6 @@ $conn->set_charset('utf8mb4');
 if ($conn->connect_error) {
     header("location: error.php");
 }
-
-$subject = [];
-$tutor = $_SESSION["tutorid"];
-$query = $conn->prepare("SELECT * FROM subject WHERE tutor = ? AND status = 0");
-$query->bind_param('i', $tutor);
-if($query->execute()) {
-    $result = $query->get_result();
-    if($result->num_rows > 0){
-        while ($row = $result->fetch_assoc()) {
-            $subject[] = [
-                'id'      => $row["id"],
-                'name'    => $row["name"],
-                'grade'   => $row["grade"]
-            ];
-        }
-    }
-}
 ?>
 <!DOCTYPE html>
 <html>
@@ -52,47 +35,6 @@ if($query->execute()) {
 </head>
 <body>
     <div id="shadow"></div>
-    <div id="event-infobox">
-        <div style="justify-content: right; display: flex; width: 100%;" onclick="closeInfoBox()"><p id="close-infobox">X</p></div>
-        <h2 id="action-title">Nuova lezione</h2>
-
-        <form id="form-infobox" action="api/insert.php" method="POST">
-            <?php
-            if(count($subject) > 0) {
-                echo '
-                <label class="control-label" for="subject">Materia</label>
-                    <select class="form-control" name="subject" id="subject">
-                ';
-                foreach($subject as $sub) {
-                    echo '<option value="' . $sub["id"] . '">' . $sub["name"] . '</option>';
-                }
-                echo '</select>
-                <label class="control-label" for="startDate">Data di inizio</label>
-                <input type="datetime-local" class="form-control" id="startDate" name="startDate" value="' . date("Y-m-d\Th:i", time()) . '" min="' . date("Y-m-d\Th:i", time()) . '">
-
-                <label class="control-label" for="duration">Durata</label>
-                <p>Inserisci la durata della lezione in minuti</p>
-                <input type="text" class="form-control" name="duration" value="0">
-
-                <label class="control-label" for="price">Prezzo</label>
-                <p>Inserisci il prezzo della lezione in centesimi (1565 = 15,65€)</p>
-                <input type="text" class="form-control" name="price" value="0">
-                
-                <div style="margin-top: 20px"></div>
-                <button type="button" class="btn btn-secondary" onclick="closeInfoBox()">Annulla</button>
-                <button type="submit" style="background-color: #c9ffc9;" class="btn btn-primary">Pubblica lezione</button>
-                ';
-            }
-            else {
-                echo '
-                <p><strong>Non hai ancora nessuna materia...</strong></p>
-                <p>Crea la tua prima materia e comincia ad aggiungere le tue lezioni</p>
-                <a href="new-subject.php" style="background-color: #0265f9; display: block; width: fit-content; margin-top: 10px; color: white; text-decoration: none;" class="btn btn-primary">Nuova materia</a>
-                ';
-            }
-            ?>
-        </form>
-    </div>
     <div id="exist-infobox">
         <div style="justify-content: right; display: flex; width: 100%;" onclick="closeInfoBox()"><p id="close-infobox">X</p></div>
         <h3 id="action-title">Informazioni lezione</h3>
@@ -137,7 +79,7 @@ if($query->execute()) {
                 <p style="margin: 0;">Guadagnati questo mese</p>
             </div>
             <div id="comands-holder">
-                <button id="addeventbtn" class="comands-btn" onclick="addEvent()">Nuova lezione</button>
+                <button id="addeventbtn" class="comands-btn" onclick="goToNewLesson()">Nuova lezione</button>
                 <button class="comands-btn" onclick="openSubjects()">Le tue materie</button>
                 <button class="comands-btn" onclick="openGains()">I tuoi guadagni</button>
                 <button class="comands-btn" onclick="openProfile()">Il tuo profilo</button>

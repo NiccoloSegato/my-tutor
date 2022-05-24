@@ -19,7 +19,7 @@
     display: block;
     font-size: 16px;
     border-radius: 5px;
-    width: 100%;
+    width: calc(100% - 30px);
     padding: 10px 15px;
     margin-bottom: 20px;
     box-shadow: rgb(242, 242, 242) 0px 1px 15px;

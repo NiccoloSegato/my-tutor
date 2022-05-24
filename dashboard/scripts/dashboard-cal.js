@@ -220,6 +220,10 @@ function addEvent() {
     document.getElementById("event-infobox").style.display = "block";
 }
 
+function goToNewLesson() {
+    window.location.href = "new-lesson.php";
+}
+
 function closeInfoBox() {
     document.getElementById("shadow").style.display = "none";
     document.getElementById("event-infobox").style.display = "none";
