@@ -35,25 +35,27 @@ if ($conn->connect_error) {
 </head>
 <body>
     <div id="shadow"></div>
-    <div id="exist-infobox">
-        <div style="justify-content: right; display: flex; width: 100%;" onclick="closeInfoBox()"><p id="close-infobox">X</p></div>
-        <h3 id="action-title">Informazioni lezione</h3>
+    <div id="exist-infobox-cont">
+        <div id="exist-infobox">
+            <div style="justify-content: right; display: flex; width: 100%;" onclick="closeInfoBox()"><p id="close-infobox">X</p></div>
+            <h3 id="action-title">Informazioni lezione</h3>
 
-        <p id="ex-subject-name"></p>
-        <p id="ex-date-dur"></p>
-        <p id="ex-price"></p>
+            <p id="ex-subject-name"></p>
+            <p id="ex-date-dur"></p>
+            <p id="ex-price"></p>
 
-        <div style="background-color: #e3e3e3; height: 2px; width: 100%; margin-top: 20px; margin-bottom: 30px;"></div>
+            <div style="background-color: #e3e3e3; height: 2px; width: 100%; margin-top: 20px; margin-bottom: 30px;"></div>
 
-        <h3>Prenotazione</h3>
-        <p id="ex-res-mail"></p>
-        <p id="ex-res-phone"></p>
-        <p id="ex-res-desc"></p>
+            <h3>Prenotazione</h3>
+            <p id="ex-res-mail"></p>
+            <p id="ex-res-phone"></p>
+            <p id="ex-res-desc"></p>
 
-        <div style="width: 100%; margin-top: 20px; margin-bottom: 30px;"></div>
+            <div style="width: 100%; margin-top: 20px; margin-bottom: 30px;"></div>
 
-        <button class="btn btn-secondary" data-dismiss="modal" onclick="closeInfoBox()">Chiudi</button>
-        <button style="background-color: #ffa0a0;" class="btn btn-primary" id="del-les">Elimina lezione</button>
+            <button class="btn btn-secondary" data-dismiss="modal" onclick="closeInfoBox()">Chiudi</button>
+            <button style="background-color: #ffa0a0;" class="btn btn-primary" id="del-les">Elimina lezione</button>
+        </div>
     </div>
     <header>
         <img src="../assets/images/logo.png" alt="Reepit">

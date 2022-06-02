@@ -106,14 +106,18 @@ td {
 .container-box p {
     margin: 0;
 }
-#exist-infobox {
-    background-color: white;
+#exist-infobox-cont {
     position: fixed;
+    width: 100%;
     top: 30px;
-    left: calc(50% - 270px);
-    width: 500px;
     display: none;
     z-index: 100;
+}
+#exist-infobox {
+    background-color: white;
+    width: calc(90% - 40px);
+    margin: auto;
+    max-width: 500px;
     border-radius: 10px;
     padding: 20px;
 }

@@ -216,7 +216,7 @@ function showInfoLesson(lessonId) {
         }
     });
     document.getElementById("shadow").style.display = "block";
-    document.getElementById("exist-infobox").style.display = "block";
+    document.getElementById("exist-infobox-cont").style.display = "block";
 }
 
 function addEvent() {
@@ -231,7 +231,7 @@ function goToNewLesson() {
 function closeInfoBox() {
     document.getElementById("shadow").style.display = "none";
     //document.getElementById("event-infobox").style.display = "none";
-    document.getElementById("exist-infobox").style.display = "none";
+    document.getElementById("exist-infobox-cont").style.display = "none";
 }
 
 function openSubjects() {
