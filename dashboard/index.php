@@ -97,13 +97,13 @@ if ($conn->connect_error) {
                 <table class="table table-bordered table-responsive-sm" id="calendar">
                     <thead>
                         <tr>
-                            <th>Domenica</th>
-                            <th>Lunedì</th>
-                            <th>Martedì</th>
-                            <th>Mercoledì</th>
-                            <th>Giovedì</th>
-                            <th>Venerdì</th>
-                            <th>Sabato</th>
+                            <th>Dom</th>
+                            <th>Lun</th>
+                            <th>Mar</th>
+                            <th>Mer</th>
+                            <th>Gio</th>
+                            <th>Ven</th>
+                            <th>Sab</th>
                         </tr>
                     </thead>
 

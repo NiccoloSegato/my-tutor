@@ -69,6 +69,7 @@ function showCalendar(month, year) {
             }
 
             else {
+                /*
                 let cell = document.createElement("td");
                 let cellText = document.createElement("div");
                 cellText.id = "container-" + date;
@@ -81,6 +82,17 @@ function showCalendar(month, year) {
                     cell.classList.add("bg-info");
                 } // color today's date
 
+                cell.appendChild(cellText);
+                row.appendChild(cell);
+                date++;
+                */
+                let cell = document.createElement("td");
+                let cellText = document.createElement("p");
+                cellText.innerText = date;
+                cellText.classList.add("day-round");
+                if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
+                    cellText.id = "bg-info";
+                }
                 cell.appendChild(cellText);
                 row.appendChild(cell);
                 date++;
