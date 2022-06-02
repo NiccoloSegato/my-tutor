@@ -6,10 +6,10 @@ if(!isset($_GET["id"])) {
 error_reporting(-1);
 ini_set('display_errors', 'On');
 
-$servername = "hostingmysql335.register.it";
-$usernameD = "Sql1068665";
-$password = "3863t3v631";
-$dbname = "sql1068665";
+$servername = "localhost";
+$usernameD = "root";
+$password = "";
+$dbname = "reepit";
 
 $conn = new mysqli($servername, $usernameD, $password, $dbname);
 $conn->set_charset('utf8mb4');
@@ -51,10 +51,31 @@ else {
         <script src="scripts/tutor.js"></script>
     </head>
     <body>
+        <div id="shadow"></div>
+        <div id="popup-box-cont">
+            <div id="popup-box">
+                <p id="popup-close" onclick="closePopUp()">X</p>
+                <h2 style="margin: 0;">Aggiungi informazioni</h2>
+                <p style="margin-top: 5px;">Il tutor richiede le seguenti informazioni per preparare al meglio la lezione.</p>
+
+                <label for="popup-email">La tua email</label>
+                <input type="email" name="popup-email" id="popup-email">
+
+                <label for="popup-cell">Il tuo numero di telefono</label>
+                <input type="number" name="popup-cell" id="popup-cell">
+
+                <label for="popup-description">Argomenti che vuoi trattare</label>
+                <textarea name="popup-description" id="popup-description"></textarea>
+
+                <button id="popup-pay-btn">Paga ora</button>
+            </div>
+        </div>
+
         <header>
             <img src="assets/images/logo.ico" alt="Logo">
             <p style="margin: 0 10px; font-size: 27px;">Reepit</p>
         </header>
+        
         <div id="bodycont">
             <div id="tutor-profile">
                 <img id="tutor-profile-img" src="<?php echo $tutor_img ?>" alt="Tutor Image">
@@ -139,11 +160,8 @@ else {
                             <p id="sum-duration-name">-</p>
                             <div class="sum-divider"></div>
                             <p id="sum-total-price">-</p>
-
-                            <label for="sh-email">La tua email</label>
-                            <input type="email" name="sh-email" id="sh-email" placeholder="Inserisci la tua mail">
                             
-                            <button id="sum-confirm-btn">Paga ora</button>
+                            <button id="sum-confirm-btn">Prenota</button>
                         </div>
                     </div>
                 </div>

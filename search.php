@@ -39,10 +39,10 @@
                         error_reporting(-1);
                         ini_set('display_errors', 'On');
 
-                        $servername = "hostingmysql335.register.it";
-                        $usernameD = "Sql1068665";
-                        $password = "3863t3v631";
-                        $dbname = "sql1068665";
+                        $servername = "localhost";
+                        $usernameD = "root";
+                        $password = "";
+                        $dbname = "reepit";
 
                         $conn = new mysqli($servername, $usernameD, $password, $dbname);
                         $conn->set_charset('utf8mb4');

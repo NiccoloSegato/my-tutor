@@ -10,10 +10,10 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     exit;
 }
 
-define('DB_SERVER', 'hostingmysql335.register.it');
-define('DB_USERNAME', 'Sql1068665');
-define('DB_PASSWORD', '3863t3v631');
-define('DB_NAME', 'sql1068665');
+define('DB_SERVER', 'localhost');
+define('DB_USERNAME', 'root');
+define('DB_PASSWORD', '');
+define('DB_NAME', 'reepit');
 
 /* Attempt to connect to MySQL database */
 $pdo = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
@@ -25,7 +25,7 @@ if($pdo === false){
 
 $loginerror = "";
 // Define variables and initialize with empty values
-$username = $password = "3863t3v631";
+$username = $password = "";
 $username_err = $password_err = $login_err = "";
  
 // Processing form data when form is submitted

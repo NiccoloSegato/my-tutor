@@ -10,10 +10,10 @@ if(!isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] !== true){
     exit;
 }
 
-$servername = "hostingmysql335.register.it";
-$usernameD = "Sql1068665";
-$password = "3863t3v631";
-$dbname = "sql1068665";
+$servername = "localhost";
+$usernameD = "root";
+$password = "";
+$dbname = "reepit";
 
 $conn = new mysqli($servername, $usernameD, $password, $dbname);
 $conn->set_charset('utf8mb4');
@@ -46,7 +46,9 @@ if ($conn->connect_error) {
         <div style="background-color: #e3e3e3; height: 2px; width: 100%; margin-top: 20px; margin-bottom: 30px;"></div>
 
         <h3>Prenotazione</h3>
-        <p id="ex-res-name"></p>
+        <p id="ex-res-mail"></p>
+        <p id="ex-res-phone"></p>
+        <p id="ex-res-desc"></p>
 
         <div style="width: 100%; margin-top: 20px; margin-bottom: 30px;"></div>
 

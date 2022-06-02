@@ -11,10 +11,10 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true ){
 }
 
 if(isset($_POST["id"])) {
-    $servername = "hostingmysql335.register.it";
-    $usernameD = "Sql1068665";
-    $password = "3863t3v631";
-    $dbname = "sql1068665";
+    $servername = "localhost";
+    $usernameD = "root";
+    $password = "";
+    $dbname = "reepit";
 
     $conn = new mysqli($servername, $usernameD, $password, $dbname);
     $conn->set_charset('utf8mb4');

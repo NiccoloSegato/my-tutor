@@ -10,7 +10,7 @@ require '../../plugin/vendor/autoload.php';
 \Stripe\Stripe::setApiKey('sk_test_51L1CLOLQYnoKNATEH0JIrh9piymrLe1lcW0ggODUNu5E2SXxc0eGY4mLwz7AOGRfudx0iTR5uTBkkIUdZLxMivAb00qNJ7va2v');
 
 $YOUR_DOMAIN = 'https://reepit.it';
-if(isset($_POST["email"]) && isset($_POST["lessonId"])){
+if(isset($_POST["email"]) && isset($_POST["lessonId"]) && isset($_POST["phone"])){
 
     // Creation of an ID for the order
     $order_id = generateRandomString();
@@ -18,14 +18,16 @@ if(isset($_POST["email"]) && isset($_POST["lessonId"])){
     // Retrieving the lesson ID
     $lessonid = htmlspecialchars($_POST["lessonId"]);
 
-    // Buyer email
+    // Buyer infos
     $useremail = htmlspecialchars($_POST["email"]);
+    $userphone = htmlspecialchars($_POST["phone"]);
+    $userdescription = isset($_POST["description"]) ? htmlspecialchars($_POST["description"]) : "";
 
     // Connecting to DB
-    $servername = "hostingmysql335.register.it";
-    $usernameD = "Sql1068665";
-    $password = "3863t3v631";
-    $dbname = "sql1068665";
+    $servername = "localhost";
+    $usernameD = "root";
+    $password = "";
+    $dbname = "reepit";
 
     $conn = new mysqli($servername, $usernameD, $password, $dbname);
     $conn->set_charset('utf8mb4');
@@ -87,8 +89,8 @@ if(isset($_POST["email"]) && isset($_POST["lessonId"])){
                 $transactionid = $queryt->insert_id;
                 
                 // Creating the reservation
-                $queryr = $conn->prepare("INSERT INTO reservation (lesson, buyer_email, transaction) VALUES (?, ?, ?)");
-                $queryr->bind_param('isi', $lessonid, $useremail, $transactionid);
+                $queryr = $conn->prepare("INSERT INTO reservation (lesson, buyer_email, buyer_phone, description, transaction) VALUES (?, ?, ?, ?, ?)");
+                $queryr->bind_param('isssi', $lessonid, $useremail, $userphone, $userdescription, $transactionid);
                 if($queryr->execute()) {
                     // Sending confirmation email
                     file_get_contents("https://reepit.it/plugin/mailengine.php?token=3cb62525ca5c453c2e4ad727b8b3ebf5049c2445307d59a83727528c92a15b2a&dest=" . $useremail);

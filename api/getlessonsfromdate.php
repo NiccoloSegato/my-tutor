@@ -3,10 +3,10 @@ error_reporting(-1);
 ini_set('display_errors', 'On');
 
 if(isset($_GET["id"]) && isset($_GET["date"])) {
-    $servername = "hostingmysql335.register.it";
-    $usernameD = "Sql1068665";
-    $password = "3863t3v631";
-    $dbname = "sql1068665";
+    $servername = "localhost";
+    $usernameD = "root";
+    $password = "";
+    $dbname = "reepit";
 
     $conn = new mysqli($servername, $usernameD, $password, $dbname);
     $conn->set_charset('utf8mb4');
@@ -32,7 +32,18 @@ if(isset($_GET["id"]) && isset($_GET["date"])) {
             $lessonsarray = array();
             // Listing the lessons
             while ($row = $result->fetch_assoc()) {
-                $temp1 = array("id"=> $row["id"], "subject" => $row["subject"], "starting_date" => $row["datereference"], "duration" => $row["duration"], "price" => $row["price"]);
+                $lessonid = $row["id"];
+                // TODO: Check aborted transactions
+                $querya = $conn->prepare("SELECT id FROM reservation WHERE lesson = ?");
+                $querya->bind_param('i', $lessonid);
+                $querya->execute();
+                $resulta = $querya->get_result();
+                $reserved = 0;
+                if($resulta->num_rows > 0) {
+                    // Reserved
+                    $reserved = 1;
+                }
+                $temp1 = array("id"=> $row["id"], "subject" => $row["subject"], "starting_date" => $row["datereference"], "duration" => $row["duration"], "price" => $row["price"], "reserved" => $reserved);
                 array_push($lessonsarray, $temp1);
             }
             $obj->lessons_count = $result->num_rows;
