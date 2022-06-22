@@ -66,7 +66,7 @@ if ($conn->connect_error) {
             <div id="gains-box">
                 <p id="gains-lbl">
                     <?php
-                    $queryt = $conn->prepare("SELECT SUM(amount - commission) AS total FROM transaction WHERE tutor = ? AND status = 1 AND datereference >= NOW() - INTERVAL 30 DAY");
+                    $queryt = $conn->prepare("SELECT SUM(amount - commission) AS total FROM transaction WHERE tutor = ? AND status = 1 AND datereference >= (NOW() - INTERVAL 30 DAY)");
                     $queryt->bind_param('i', $tutor);
                     if($queryt->execute()) {
                         $resultt = $queryt->get_result();
