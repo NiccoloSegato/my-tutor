@@ -117,12 +117,19 @@ function showSlots(event) {
                                 'subject' : obj.lessons[i].subject,
                                 'starting_date' : obj.lessons[i].starting_date,
                                 'duration' : obj.lessons[i].duration,
-                                'price' : obj.lessons[i].price
+                                'price' : obj.lessons[i].price,
+                                'status' : obj.lessons[i].status
                             }
                             let lessonDiv = document.createElement("div");
                             lessonDiv.classList.add("date-obj");
-                            lessonDiv.onclick = function() {
-                                renderSummary(lesson.id);
+                            if(lesson.status == 1) {
+                                // Lesson reserved
+                                lessonDiv.classList.add("les-reserved");
+                            }
+                            else {
+                                lessonDiv.onclick = function() {
+                                    renderSummary(lesson.id);
+                                }
                             }
                 
                             let lessonDate = document.createElement("p");

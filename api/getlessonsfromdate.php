@@ -32,7 +32,17 @@ if(isset($_GET["id"]) && isset($_GET["date"])) {
             $lessonsarray = array();
             // Listing the lessons
             while ($row = $result->fetch_assoc()) {
-                $temp1 = array("id"=> $row["id"], "subject" => $row["subject"], "starting_date" => $row["datereference"], "duration" => $row["duration"], "price" => $row["price"]);
+                // Check if lesson is reserved
+                $lessonid = $row["id"];
+                $status = 0;
+                $queryi = $conn->prepare("SELECT * FROM reservation WHERE lesson = ? AND status = 1");
+                $queryi->bind_param('i', $lessonid);
+                $queryi->execute();
+                $resulti = $queryi->get_result();
+                if($resulti->num_rows > 0) {
+                    $status = 1;
+                }
+                $temp1 = array("id"=> $lessonid, "subject" => $row["subject"], "starting_date" => $row["datereference"], "duration" => $row["duration"], "price" => $row["price"], "status" => $status);
                 array_push($lessonsarray, $temp1);
             }
             $obj->lessons_count = $result->num_rows;

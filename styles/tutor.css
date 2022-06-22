@@ -224,3 +224,12 @@ header img {
     color: #949494 !important;
     cursor: default;
 }
+.les-reserved {
+    background-color: #f7f7f7 !important;
+    cursor: default !important;
+}
+.loadingbtn {
+    background-color: #f7f7f7 !important;
+    color: black !important;
+    cursor: default !important;
+}

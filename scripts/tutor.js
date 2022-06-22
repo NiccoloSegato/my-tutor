@@ -17,6 +17,12 @@ function submitOrder(lessonId) {
     let phone = document.getElementById("sh-phone").value;
     let description = document.getElementById("sh-description").value;
     if(email.length > 5 && phone.length > 5) {
+        // Change button UI
+        let stripeButton = document.getElementById("sum-confirm-btn");
+        stripeButton.classList.add("loadingbtn");
+        stripeButton.onclick = null;
+        stripeButton.innerText = "Caricamento...";
+
         $.ajax({
             url: '../api/stripe/paymentengine.php',
             type: 'POST',
