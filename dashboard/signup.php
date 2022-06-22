@@ -10,10 +10,10 @@ if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
     exit;
 }
 
-define('DB_SERVER', 'localhost');
-define('DB_USERNAME', 'root');
-define('DB_PASSWORD', '');
-define('DB_NAME', 'reepit');
+define('DB_SERVER', '89.46.111.249');
+define('DB_USERNAME', 'Sql1644591');
+define('DB_PASSWORD', 'TaPM8fXBfnAsWBA!!');
+define('DB_NAME', 'Sql1644591_1');
 
 /* Attempt to connect to MySQL database */
 $pdo = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
@@ -24,7 +24,7 @@ if($pdo === false){
 }
 
 // Define variables and initialize with empty values
-$username = $password = "";
+$username = $password = "TaPM8fXBfnAsWBA!!";
 $username_err = $password_err = $login_err = "";
  
 // Processing form data when form is submitted
@@ -73,18 +73,18 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="assets/images/logo.ico" sizes="32x32">
-        <title>Registrati - Reepit</title>
+        <title>Registrati - TutorMate</title>
         <link rel="stylesheet" href="styles/global.css?v=2">
         <link rel="stylesheet" href="styles/signup.css?v=2">
         <script src="scripts/signup.js"></script>
     </head>
     <body>
         <header>
-            <img src="assets/images/logo.png" alt="Reepit">
+            <img src="assets/images/logo.png" alt="TutorMate">
         </header>
         <div id="globalcontainer">
-            <h1>Registrati su Reepit</h1>
-            <p>Inizia a dare ripetizioni e scopri come è semplice usare Reepit per crescere 📚</p>
+            <h1>Registrati su TutorMate</h1>
+            <p>Inizia a dare ripetizioni e scopri come è semplice usare TutorMate per crescere 📚</p>
 
             <form id="signup-form" method="POST">
                 <label for="signup-name-field">Nome</label>

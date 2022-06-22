@@ -4,7 +4,7 @@ ini_set('display_errors', 'On');
 
 if(isset($_GET["dest"]) && isset($_GET["token"])){
     $token = htmlspecialchars($_GET["token"]);
-    if($token === hash("sha256", "!!EP3REEPITmail")) {
+    if($token === hash("sha256", "!!EP3TutorMatemail")) {
         $dest = htmlspecialchars($_GET["dest"]);
         require 'vendor/autoload.php';
 
@@ -12,10 +12,12 @@ if(isset($_GET["dest"]) && isset($_GET["token"])){
             ->setUsername('nic@segato.net')
             ->setPassword('Cocco11nov');
 
+        //$transport = new Swift_SendmailTransport('/usr/sbin/sendmail -t');
+
         $mailer = new Swift_Mailer($transport);
 
-        $message = (new Swift_Message('La tua lezione su Reepit'))
-                    ->setFrom(['info@reepit.it' => 'Reepit Team'])
+        $message = (new Swift_Message('La tua lezione su TutorMate'))
+                    ->setFrom(['info@TutorMate.it' => 'TutorMate Team'])
                     ->setTo([$dest])
                     ->setBody('
                     <!DOCTYPE html>

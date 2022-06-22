@@ -5,7 +5,7 @@
 h1 {
     font-weight: bold !important;
 }
-/*#calendar {
+#calendar {
     border-radius: 10px;
     width: 100%;
     border-collapse: collapse;
@@ -25,69 +25,7 @@ td {
     border: 1px solid #ececec;
     width: calc(100% / 7);
     max-width: calc(100% / 7);
-}*/
-.month-and-year {
-    margin-top: 0;
-    margin-bottom: 5px;
 }
-#date-box {
-    display: none;
-}
-#date-selector {
-    display: flex;
-    flex-direction: row;
-    justify-content: left;
-    height: 100px;
-    width: calc(100% - 20px);
-    margin-left: 0;
-    margin-bottom: 0;
-    overflow: auto;
-    white-space: nowrap;
-    padding: 10px 0;
-}
-.date-obj {
-    background-color: white;
-    box-shadow: rgb(242, 242, 242) 0px 1px 15px;
-    border-radius: 20px;
-    padding: 20px;
-    width: fit-content;
-    margin-right: 10px;
-    cursor: pointer;
-}
-.date-obj-reserved {
-    background-color: rgb(233, 233, 233) !important;
-    cursor: default !important;
-}
-.date-obj p {
-    margin: 0;
-}
-#bg-info {
-    background-color: #0366fa;
-    color: white;
-}
-.bg-old {
-    background-color: white !important;
-    color: rgb(105, 105, 105);
-    cursor: default !important;
-}
-.day-round {
-    background-color: #e6e6e6;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    text-align: center;
-    line-height: 30px;
-    margin: 5px auto;
-    cursor: pointer;
-}
-td {
-    align-items: center;
-}
-#calendar {
-    width: 100%;
-    max-width: 500px;
-}
-/***/
 .lesson-container {
     border-radius: 5px;
     padding: 0 5px;
@@ -168,18 +106,14 @@ td {
 .container-box p {
     margin: 0;
 }
-#exist-infobox-cont {
-    position: fixed;
-    width: 100%;
-    top: 30px;
-    display: none;
-    z-index: 100;
-}
 #exist-infobox {
     background-color: white;
-    width: calc(90% - 40px);
-    margin: auto;
-    max-width: 500px;
+    position: fixed;
+    top: 30px;
+    left: calc(50% - 270px);
+    width: 500px;
+    display: none;
+    z-index: 100;
     border-radius: 10px;
     padding: 20px;
 }

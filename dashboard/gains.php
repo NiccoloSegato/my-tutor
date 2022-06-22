@@ -9,10 +9,10 @@ if(!isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] !== true){
     header("location: login.php");
     exit;
 }
-$servername = "localhost";
-$usernameD = "root";
-$password = "";
-$dbname = "reepit";
+$servername = "89.46.111.249";
+$usernameD = "Sql1644591";
+$password = "TaPM8fXBfnAsWBA!!";
+$dbname = "Sql1644591_1";
 
 $conn = new mysqli($servername, $usernameD, $password, $dbname);
 $conn->set_charset('utf8mb4');
@@ -27,7 +27,7 @@ if ($conn->connect_error) {
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="assets/images/logo.ico" sizes="32x32">
-        <title>I tuoi guadagni - Reepit</title>
+        <title>I tuoi guadagni - TutorMate</title>
         <link rel="stylesheet" href="styles/global.css?v=2">
         <link rel="stylesheet" href="styles/gains.css">
         <script src="scripts/jquery.js"></script>
@@ -35,7 +35,7 @@ if ($conn->connect_error) {
     </head>
     <body>
         <header>
-            <img src="assets/images/logo.png" alt="Reepit">
+            <img src="assets/images/logo.png" alt="TutorMate">
         </header>
         <div id="globalcontainer">
             <h1>I tuoi guadagni</h1>

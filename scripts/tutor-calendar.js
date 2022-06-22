@@ -22,13 +22,11 @@ function next() {
 }
 
 function previous() {
-    if(currentMonth -1 >= today.getMonth()) {
-        currentYear = (currentMonth === 0) ? currentYear - 1 : currentYear;
-        currentMonth = (currentMonth === 0) ? 11 : currentMonth - 1;
-        showCalendar(currentMonth, currentYear);
-        selectedMonth = currentMonth;
-        selectedYear= currentYear;
-    }
+    currentYear = (currentMonth === 0) ? currentYear - 1 : currentYear;
+    currentMonth = (currentMonth === 0) ? 11 : currentMonth - 1;
+    showCalendar(currentMonth, currentYear);
+    selectedMonth = currentMonth;
+    selectedYear= currentYear;
 }
 
 function showCalendar(month, year) {
@@ -65,24 +63,27 @@ function showCalendar(month, year) {
             else if (date > daysInMonth) {
                 break;
             }
+
             else {
                 let cell = document.createElement("td");
                 let cellText = document.createElement("p");
+                cellText.classList.add("day-label");
                 cellText.innerText = date;
-                cellText.classList.add("day-round");
+                cell.append(cellText);
                 if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
-                    cellText.id = "bg-info";
+                    cellText.classList.add("bg-today");
                 }
-                if (date < today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
-                    cellText.classList.add("bg-old");
+                else if (date < today.getDate() && year <= today.getFullYear() && month <= today.getMonth()){
+                    cellText.classList.add("bg-past");
                 }
                 else {
-                    cellText.onclick = showSlots;
+                    cell.onclick = showSlots;
                 }
                 cell.appendChild(cellText);
                 row.appendChild(cell);
                 date++;
             }
+
 
         }
 
@@ -113,19 +114,12 @@ function showSlots(event) {
                                 'subject' : obj.lessons[i].subject,
                                 'starting_date' : obj.lessons[i].starting_date,
                                 'duration' : obj.lessons[i].duration,
-                                'price' : obj.lessons[i].price,
-                                'reserved' : obj.lessons[i].reserved
+                                'price' : obj.lessons[i].price
                             }
                             let lessonDiv = document.createElement("div");
                             lessonDiv.classList.add("date-obj");
-                            if(lesson.reserved == 1){
-                                // Lesson already reserved
-                                lessonDiv.classList.add("date-obj-reserved");
-                            }
-                            else {
-                                lessonDiv.onclick = function() {
-                                    renderSummary(lesson.id);
-                                }
+                            lessonDiv.onclick = function() {
+                                renderSummary(lesson.id);
                             }
                 
                             let lessonDate = document.createElement("p");
@@ -202,7 +196,7 @@ function renderSummary(lessonId) {
                     document.getElementById("sum-date-name").innerHTML = "Il <strong>" + d.getDate() + " " + months[d.getMonth()] + " " + d.getFullYear() + "</strong> dalle <strong>" + d.getHours() + ":" + d.getMinutes() + "</strong>";
                     document.getElementById("sum-total-price").innerText = (lesson.price / 100) + "€ - Totale";
                     document.getElementById("sum-confirm-btn").onclick = function() {
-                        showPopUpReserve(lessonId);
+                        submitOrder(lessonId);
                     }
                     document.getElementById("summary-slot").style.display = "block";
                 }
@@ -218,16 +212,4 @@ function renderSummary(lessonId) {
             }
         }
     });
-}
-
-function showPopUpReserve(lessonId) {
-    document.getElementById("shadow").style.display = "block";
-    document.getElementById("popup-box-cont").style.display = "block";
-    document.getElementById("popup-pay-btn").onclick = function() {
-        submitOrder(lessonId);
-    }
-}
-function closePopUp() {
-    document.getElementById("shadow").style.display = "none";
-    document.getElementById("popup-box-cont").style.display = "none";
 }

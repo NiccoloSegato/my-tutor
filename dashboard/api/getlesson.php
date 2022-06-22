@@ -11,10 +11,10 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true ){
 }
 
 if(isset($_GET["id"])) {
-    $servername = "localhost";
-    $usernameD = "root";
-    $password = "";
-    $dbname = "reepit";
+    $servername = "89.46.111.249";
+    $usernameD = "Sql1644591";
+    $password = "TaPM8fXBfnAsWBA!!";
+    $dbname = "Sql1644591_1";
 
     $conn = new mysqli($servername, $usernameD, $password, $dbname);
     $conn->set_charset('utf8mb4');
@@ -40,7 +40,7 @@ if(isset($_GET["id"])) {
             while ($row = $result->fetch_assoc()) {
                 // Search for a reservation for this lesson
                 $lessonid = $row["lesson_id"];
-                $query2 = $conn->prepare("SELECT id, buyer_email, buyer_phone, description FROM reservation WHERE lesson = ?");
+                $query2 = $conn->prepare("SELECT reservation.id as resid, reservation.buyer_email FROM reservation WHERE reservation.lesson = ?");
                 $query2->bind_param('i', $lessonid);
                 $query2->execute();
                 $result2 = $query2->get_result();
@@ -48,7 +48,7 @@ if(isset($_GET["id"])) {
                 if($result2->num_rows > 0) {
                     // Someone reserved
                     while ($row2 = $result2->fetch_assoc()) {
-                        $resarray = array("isreserved" => "1", "id" => $row2["id"], "buyer_email" => $row2["buyer_email"], "buyer_phone" => $row2["buyer_phone"], "description" => $row2["description"]);
+                        $resarray = array("isreserved" => "1", "resid" => $row2["resid"], "buyer_email" => $row2["buyer_email"]);
                     }
                 }
                 else {

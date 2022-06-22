@@ -69,7 +69,6 @@ function showCalendar(month, year) {
             }
 
             else {
-                /*
                 let cell = document.createElement("td");
                 let cellText = document.createElement("div");
                 cellText.id = "container-" + date;
@@ -82,17 +81,6 @@ function showCalendar(month, year) {
                     cell.classList.add("bg-info");
                 } // color today's date
 
-                cell.appendChild(cellText);
-                row.appendChild(cell);
-                date++;
-                */
-                let cell = document.createElement("td");
-                let cellText = document.createElement("p");
-                cellText.innerText = date;
-                cellText.classList.add("day-round");
-                if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
-                    cellText.id = "bg-info";
-                }
                 cell.appendChild(cellText);
                 row.appendChild(cell);
                 date++;
@@ -191,7 +179,7 @@ function showInfoLesson(lessonId) {
                     }
                     if(lesson.reservation.isreserved == "0") {
                         // no reservations for this lesson
-                        document.getElementById("ex-res-mail").innerText = "🟡 Nessuna prenotazione per questa lezione...";
+                        document.getElementById("ex-res-name").innerText = "🟡 Nessuna prenotazione per questa lezione...";
                         document.getElementById("del-les").onclick = function () {
                             deleteLesson(obj.id);
                         }
@@ -201,14 +189,10 @@ function showInfoLesson(lessonId) {
                         // the lesson is reserved
                         lesson.reservation = {
                             'isreserved' : obj.reservation.isreserved,
-                            'id' : obj.reservation.id,
-                            'buyer_email' : obj.reservation.buyer_email,
-                            'buyer_phone' : obj.reservation.buyer_phone,
-                            'buyer_description' : obj.reservation.description
+                            'id' : obj.reservation.resid,
+                            'buyer_email' : obj.reservation.buyer_email
                         }
-                        document.getElementById("ex-res-mail").innerText = "🟢 Prenotazione effettuata da " + lesson.reservation.buyer_email;
-                        document.getElementById("ex-res-phone").innerHTML = "<strong>Cellulare:</strong> " + lesson.reservation.buyer_phone;
-                        document.getElementById("ex-res-desc").innerHTML = "<strong>Argomenti:</strong> " + lesson.reservation.buyer_description;
+                        document.getElementById("ex-res-name").innerText = "🟢 Prenotazione effettuata da " + lesson.reservation.buyer_email;
                         document.getElementById("del-les").style.display = "none";
                     }
                     document.getElementById("ex-subject-name").innerHTML = "<strong>" + lesson.subject_name + "</strong>";
@@ -228,7 +212,7 @@ function showInfoLesson(lessonId) {
         }
     });
     document.getElementById("shadow").style.display = "block";
-    document.getElementById("exist-infobox-cont").style.display = "block";
+    document.getElementById("exist-infobox").style.display = "block";
 }
 
 function addEvent() {
@@ -243,7 +227,7 @@ function goToNewLesson() {
 function closeInfoBox() {
     document.getElementById("shadow").style.display = "none";
     //document.getElementById("event-infobox").style.display = "none";
-    document.getElementById("exist-infobox-cont").style.display = "none";
+    document.getElementById("exist-infobox").style.display = "none";
 }
 
 function openSubjects() {

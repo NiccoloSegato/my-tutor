@@ -10,10 +10,10 @@ if(!isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] !== true){
     exit;
 }
 
-$servername = "localhost";
-$usernameD = "root";
-$password = "";
-$dbname = "reepit";
+$servername = "89.46.111.249";
+$usernameD = "Sql1644591";
+$password = "TaPM8fXBfnAsWBA!!";
+$dbname = "Sql1644591_1";
 
 $conn = new mysqli($servername, $usernameD, $password, $dbname);
 $conn->set_charset('utf8mb4');
@@ -27,7 +27,7 @@ if ($conn->connect_error) {
 <head lang="it">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Il tuo calendario - Reepit</title>
+    <title>Il tuo calendario - TutorMate</title>
     <link rel="icon" href="assets/images/logo.ico" sizes="32x32">
     <link rel="stylesheet" href="styles/global.css?v=2">
     <link rel="stylesheet" href="styles/calendar.css?v=2">
@@ -35,30 +35,26 @@ if ($conn->connect_error) {
 </head>
 <body>
     <div id="shadow"></div>
-    <div id="exist-infobox-cont">
-        <div id="exist-infobox">
-            <div style="justify-content: right; display: flex; width: 100%;" onclick="closeInfoBox()"><p id="close-infobox">X</p></div>
-            <h3 id="action-title">Informazioni lezione</h3>
+    <div id="exist-infobox">
+        <div style="justify-content: right; display: flex; width: 100%;" onclick="closeInfoBox()"><p id="close-infobox">X</p></div>
+        <h3 id="action-title">Informazioni lezione</h3>
 
-            <p id="ex-subject-name"></p>
-            <p id="ex-date-dur"></p>
-            <p id="ex-price"></p>
+        <p id="ex-subject-name"></p>
+        <p id="ex-date-dur"></p>
+        <p id="ex-price"></p>
 
-            <div style="background-color: #e3e3e3; height: 2px; width: 100%; margin-top: 20px; margin-bottom: 30px;"></div>
+        <div style="background-color: #e3e3e3; height: 2px; width: 100%; margin-top: 20px; margin-bottom: 30px;"></div>
 
-            <h3>Prenotazione</h3>
-            <p id="ex-res-mail"></p>
-            <p id="ex-res-phone"></p>
-            <p id="ex-res-desc"></p>
+        <h3>Prenotazione</h3>
+        <p id="ex-res-name"></p>
 
-            <div style="width: 100%; margin-top: 20px; margin-bottom: 30px;"></div>
+        <div style="width: 100%; margin-top: 20px; margin-bottom: 30px;"></div>
 
-            <button class="btn btn-secondary" data-dismiss="modal" onclick="closeInfoBox()">Chiudi</button>
-            <button style="background-color: #ffa0a0;" class="btn btn-primary" id="del-les">Elimina lezione</button>
-        </div>
+        <button class="btn btn-secondary" data-dismiss="modal" onclick="closeInfoBox()">Chiudi</button>
+        <button style="background-color: #ffa0a0;" class="btn btn-primary" id="del-les">Elimina lezione</button>
     </div>
     <header>
-        <img src="../assets/images/logo.png" alt="Reepit">
+        <img src="../assets/images/logo.png" alt="TutorMate">
     </header>
     <div id="globalcont-cal">
         <h1>📚 Bentornato</h1>
@@ -97,13 +93,13 @@ if ($conn->connect_error) {
                 <table class="table table-bordered table-responsive-sm" id="calendar">
                     <thead>
                         <tr>
-                            <th>Dom</th>
-                            <th>Lun</th>
-                            <th>Mar</th>
-                            <th>Mer</th>
-                            <th>Gio</th>
-                            <th>Ven</th>
-                            <th>Sab</th>
+                            <th>Domenica</th>
+                            <th>Lunedì</th>
+                            <th>Martedì</th>
+                            <th>Mercoledì</th>
+                            <th>Giovedì</th>
+                            <th>Venerdì</th>
+                            <th>Sabato</th>
                         </tr>
                     </thead>
 

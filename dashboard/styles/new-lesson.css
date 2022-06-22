@@ -1,0 +1,39 @@
+label {
+    display: block;
+    font-weight: bold;
+}
+p {
+    margin: 0;
+}
+input {
+    max-width: 700px;
+    border: none;
+    display: block;
+    font-size: 16px;
+    border-radius: 5px;
+    width: calc(100% - 30px);
+    padding: 10px 15px;
+    margin-bottom: 20px;
+    box-shadow: rgb(242, 242, 242) 0px 1px 15px;
+    font-family: "Nunito", Helvetica, Arial, sans-serif;
+}
+select {
+    width: 100%;
+    max-width: 730px;
+    border: none;
+    display: block;
+    font-size: 16px;
+    border-radius: 5px;
+    padding: 10px 15px;
+    box-shadow: rgb(242, 242, 242) 0px 1px 15px;
+    font-family: "Nunito", Helvetica, Arial, sans-serif;
+    margin-bottom: 20px;
+}
+button {
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-top: 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
