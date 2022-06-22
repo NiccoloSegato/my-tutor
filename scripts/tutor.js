@@ -18,7 +18,7 @@ function submitOrder(lessonId) {
     let description = document.getElementById("sh-description").value;
     if(email.length > 5 && phone.length > 5) {
         $.ajax({
-            url: 'https://TutorMate.it/api/stripe/paymentengine.php',
+            url: '../api/stripe/paymentengine.php',
             type: 'POST',
             data: { email: email, phone: phone, description: description, lessonId: lessonId },
             dataType: 'text',

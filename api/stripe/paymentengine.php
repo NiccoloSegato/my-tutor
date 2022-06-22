@@ -10,7 +10,7 @@ require '../../plugin/vendor/autoload.php';
 \Stripe\Stripe::setApiKey('sk_test_51L1CLOLQYnoKNATEH0JIrh9piymrLe1lcW0ggODUNu5E2SXxc0eGY4mLwz7AOGRfudx0iTR5uTBkkIUdZLxMivAb00qNJ7va2v');
 
 $YOUR_DOMAIN = 'https://TutorMate.it';
-if(isset($_POST["email"]) && isset($_POST["lessonId"])){
+if(isset($_POST["email"]) && isset($_POST["lessonId"]) && isset($_POST["phone"])){
 
     // Creation of an ID for the order
     $order_id = generateRandomString();
@@ -20,6 +20,8 @@ if(isset($_POST["email"]) && isset($_POST["lessonId"])){
 
     // Buyer email
     $useremail = htmlspecialchars($_POST["email"]);
+    $userphone = htmlspecialchars($_POST["phone"]);
+    $userderscription = htmlspecialchars($_POST["description"]);
 
     // Connecting to DB
     $servername = "89.46.111.249";
@@ -87,11 +89,11 @@ if(isset($_POST["email"]) && isset($_POST["lessonId"])){
                 $transactionid = $queryt->insert_id;
                 
                 // Creating the reservation
-                $queryr = $conn->prepare("INSERT INTO reservation (lesson, buyer_email, transaction) VALUES (?, ?, ?)");
-                $queryr->bind_param('isi', $lessonid, $useremail, $transactionid);
+                $queryr = $conn->prepare("INSERT INTO reservation (lesson, buyer_email, buyer_phone, buyer_description, transaction) VALUES (?, ?, ?, ?, ?)");
+                $queryr->bind_param('isssi', $lessonid, $useremail, $userphone, $userderscription, $transactionid);
                 if($queryr->execute()) {
                     // Sending confirmation email
-                    file_get_contents("https://TutorMate.it/plugin/mailengine.php?token=3cb62525ca5c453c2e4ad727b8b3ebf5049c2445307d59a83727528c92a15b2a&dest=" . $useremail);
+                    file_get_contents("https://tutormate.it/plugin/mailengine.php?token=3cb62525ca5c453c2e4ad727b8b3ebf5049c2445307d59a83727528c92a15b2a&dest=" . $useremail);
                     
                     echo json_encode(['id' => $stripeid, 'error' => 0]);
                     die;
