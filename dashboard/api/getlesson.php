@@ -40,7 +40,7 @@ if(isset($_GET["id"])) {
             while ($row = $result->fetch_assoc()) {
                 // Search for a reservation for this lesson
                 $lessonid = $row["lesson_id"];
-                $query2 = $conn->prepare("SELECT reservation.id as resid, reservation.buyer_email FROM reservation WHERE reservation.lesson = ?");
+                $query2 = $conn->prepare("SELECT reservation.id as resid, reservation.buyer_email, reservation.buyer_phone, reservation.buyer_description FROM reservation WHERE reservation.lesson = ? AND status = 1");
                 $query2->bind_param('i', $lessonid);
                 $query2->execute();
                 $result2 = $query2->get_result();
@@ -48,7 +48,7 @@ if(isset($_GET["id"])) {
                 if($result2->num_rows > 0) {
                     // Someone reserved
                     while ($row2 = $result2->fetch_assoc()) {
-                        $resarray = array("isreserved" => "1", "resid" => $row2["resid"], "buyer_email" => $row2["buyer_email"]);
+                        $resarray = array("isreserved" => "1", "resid" => $row2["resid"], "buyer_email" => $row2["buyer_email"], "buyer_phone" => $row2["buyer_phone"], "buyer_description" => $row2["buyer_description"]);
                     }
                 }
                 else {

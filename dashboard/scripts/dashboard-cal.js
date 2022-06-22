@@ -190,9 +190,13 @@ function showInfoLesson(lessonId) {
                         lesson.reservation = {
                             'isreserved' : obj.reservation.isreserved,
                             'id' : obj.reservation.resid,
-                            'buyer_email' : obj.reservation.buyer_email
+                            'buyer_email' : obj.reservation.buyer_email,
+                            'buyer_phone' : obj.reservation.buyer_phone,
+                            'buyer_description' : obj.reservation.buyer_description
                         }
                         document.getElementById("ex-res-name").innerText = "🟢 Prenotazione effettuata da " + lesson.reservation.buyer_email;
+                        document.getElementById("ex-res-phone").innerText = lesson.reservation.buyer_phone;
+                        document.getElementById("ex-res-desc").innerText = "\"" + lesson.reservation.buyer_description + "\"";
                         document.getElementById("del-les").style.display = "none";
                     }
                     document.getElementById("ex-subject-name").innerHTML = "<strong>" + lesson.subject_name + "</strong>";

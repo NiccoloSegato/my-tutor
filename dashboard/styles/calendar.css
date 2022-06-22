@@ -140,6 +140,9 @@ td {
 #comands-holder {
     margin-top: 20px;
 }
+#ex-res-desc {
+    font-style: italic;
+}
 @media screen and (max-width: 700px) {
     #comands-holder {
         display: flex;

@@ -47,6 +47,8 @@ if ($conn->connect_error) {
 
         <h3>Prenotazione</h3>
         <p id="ex-res-name"></p>
+        <p id="ex-res-phone"></p>
+        <p id="ex-res-desc"></p>
 
         <div style="width: 100%; margin-top: 20px; margin-bottom: 30px;"></div>
 
