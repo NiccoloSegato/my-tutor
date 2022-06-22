@@ -67,7 +67,7 @@ else {
 
             <p><strong>Immagine del profilo</strong></p>
             <form enctype="multipart/form-data" method="POST" id="changeimage-cont">
-                <img src="<?php echo $tutor_img ?> " alt="Profile image" id="profileabs">
+                <img src="../<?php echo $tutor_img ?>" alt="Profile image" id="profileabs">
                 <div id="selectzone" style="display: flex; flex-direction: column; justify-content: center;">
                     <label id="file-upload-label" for="file-upload" class="custom-file-upload">Cambia immagine</label>
                     <input id="file-upload" type="file" name="fileToUpload" accept="image/*" onchange="submitImage()"/>

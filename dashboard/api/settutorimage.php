@@ -31,7 +31,7 @@ function get_client_ip_local() {
 }
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $valid_extensions = array('jpeg', 'jpg', 'png', 'gif', 'bmp' , 'pdf'); // valid extensions
-    $final_path = $_SERVER['DOCUMENT_Sql1644591'] . "/uploads/user/";
+    $final_path = $_SERVER['DOCUMENT_ROOT'] . "/uploads/user/";
 
     if(isset($_FILES["fileToUpload"])){
         if($_FILES['fileToUpload']) {
