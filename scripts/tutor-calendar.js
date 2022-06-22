@@ -18,15 +18,17 @@ function next() {
     currentMonth = (currentMonth + 1) % 12;
     showCalendar(currentMonth, currentYear);
     selectedMonth = currentMonth;
-    selectedYear= currentYear;
+    selectedYear = currentYear;
 }
 
 function previous() {
-    currentYear = (currentMonth === 0) ? currentYear - 1 : currentYear;
-    currentMonth = (currentMonth === 0) ? 11 : currentMonth - 1;
-    showCalendar(currentMonth, currentYear);
-    selectedMonth = currentMonth;
-    selectedYear= currentYear;
+    if(currentMonth - 1 >= today.getMonth()) {
+        currentYear = (currentMonth === 0) ? currentYear - 1 : currentYear;
+        currentMonth = (currentMonth === 0) ? 11 : currentMonth - 1;
+        showCalendar(currentMonth, currentYear);
+        selectedMonth = currentMonth;
+        selectedYear = currentYear;
+    }
 }
 
 function showCalendar(month, year) {
@@ -72,6 +74,7 @@ function showCalendar(month, year) {
                 cell.append(cellText);
                 if (date === today.getDate() && year === today.getFullYear() && month === today.getMonth()) {
                     cellText.classList.add("bg-today");
+                    cell.onclick = showSlots;
                 }
                 else if (date < today.getDate() && year <= today.getFullYear() && month <= today.getMonth()){
                     cellText.classList.add("bg-past");

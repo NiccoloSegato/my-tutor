@@ -134,16 +134,24 @@ else {
                         <div id="summary-box">
                             <p id="sum-lesson-name">-</p>
                             <p id="sum-grade-name">-</p>
-                            <div class="sum-divider"></div>
                             <p id="sum-date-name">-</p>
                             <p id="sum-duration-name">-</p>
-                            <div class="sum-divider"></div>
                             <p id="sum-total-price">-</p>
+
+                            <div class="sum-divider"></div>
+
+                            <p style="font-weight: bold; margin-bottom: 10px;">Informazioni richieste</p>
 
                             <label for="sh-email">La tua email</label>
                             <input type="email" name="sh-email" id="sh-email" placeholder="Inserisci la tua mail">
+
+                            <label for="sh-phone">Il tuo numero di telefono</label>
+                            <input type="phone" name="sh-phone" id="sh-phone" placeholder="Inserisci il tuo numero di telefono">
+
+                            <label for="sh-description">Argomenti</label>
+                            <textarea id="sh-description" name="sh-description" placeholder="Descrivi gli argomenti che ti piacerebbe trattare e altre info utili"></textarea>
                             
-                            <button id="sum-confirm-btn">Paga ora</button>
+                            <button id="sum-confirm-btn">Prenota e vai al pagamento</button>
                         </div>
                     </div>
                 </div>
