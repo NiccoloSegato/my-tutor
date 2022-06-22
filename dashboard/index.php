@@ -89,6 +89,11 @@ if ($conn->connect_error) {
             </div>
         </div>
 
+        <div id="link-cont">
+            <p style="margin-bottom: 0;"><strong>🔗 Copia e condividi il tuo link</strong></p>
+            <p style="margin: 0; background-color: #f4f4f4; padding: 10px 20px; border-radius: 15px;">https://tutormate.it/tutor.php?id=<?php echo $tutor ?></p>
+        </div>
+
         <h2>📆 Calendario</h2>
         <div id="calbox" class="container col-sm-4 col-md-7 col-lg-4 mt-5">
             <div class="card">

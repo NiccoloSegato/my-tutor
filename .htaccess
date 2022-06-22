@@ -1,0 +1,3 @@
+RewriteBase /
+RewriteEngine On
+RewriteRule ^tutor/([0-9+])/ /tutor.php?id=$1 [PT]
