@@ -126,5 +126,17 @@ if ($conn->connect_error) {
 
     </div>
 
+    <footer class='footer'>
+        <div id='logo-cont'>
+            <img src="assets/images/logo.png" width="45" height="45" alt="TutorMate logo"></img>
+            <div>
+                <h4>TutorMate</h4>
+                <p>La rivoluzione dello studio</p>
+            </div>
+        </div>
+
+        <p style="font-size: 14px; margin-top: 20px;">Copyright 2022 © TutorMate - Tutti i diritti riservati</p>
+    </footer>
+
 </body>
 </html>
