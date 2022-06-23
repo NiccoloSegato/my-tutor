@@ -9,7 +9,7 @@ function generateRandomString($length = 9) {
 require '../../plugin/vendor/autoload.php';
 \Stripe\Stripe::setApiKey('sk_test_51L1CLOLQYnoKNATEH0JIrh9piymrLe1lcW0ggODUNu5E2SXxc0eGY4mLwz7AOGRfudx0iTR5uTBkkIUdZLxMivAb00qNJ7va2v');
 
-$YOUR_DOMAIN = 'https://TutorMate.it';
+$YOUR_DOMAIN = 'https://tutormate.it';
 if(isset($_POST["email"]) && isset($_POST["lessonId"]) && isset($_POST["phone"])){
 
     // Creation of an ID for the order
@@ -93,7 +93,7 @@ if(isset($_POST["email"]) && isset($_POST["lessonId"]) && isset($_POST["phone"])
                 $queryr->bind_param('isssi', $lessonid, $useremail, $userphone, $userderscription, $transactionid);
                 if($queryr->execute()) {
                     // Sending confirmation email
-                    file_get_contents("https://tutormate.it/plugin/mailengine.php?token=3cb62525ca5c453c2e4ad727b8b3ebf5049c2445307d59a83727528c92a15b2a&dest=" . $useremail);
+                    file_get_contents("https://tutormate.it/plugin/mailengine.php?token=0a672f88b21a9097b1bc2d921ae97c12ab4e30f99a001241c823df6a86723d65&dest=" . $useremail . "&lesson=" . $lessonid);
                     
                     echo json_encode(['id' => $stripeid, 'error' => 0]);
                     die;

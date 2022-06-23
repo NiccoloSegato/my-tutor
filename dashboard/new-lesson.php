@@ -112,7 +112,7 @@ else {
         <header>
             <img src="assets/images/logo.png" alt="TutorMate">
         </header>
-        <div id="globalcontainer">
+        <div id="globalcontainer" style="margin-bottom: 30px;">
             <h1>Aggiungi una nuova lezione</h1>
             
             <form id="form-infobox" method="POST">
